@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 03b9802f973228c4bb36f4a8caef9f05
+guid: b38a1417412266d458515461104f5284
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,337 +105,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: World1_0
+      name: HouseItems_Bed
       rect:
         serializedVersion: 2
-        x: 58
-        y: 1912
-        width: 44
-        height: 100
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 34
+        y: 410
+        width: 133
+        height: 130
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24242459}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb7d98c7dc2135744bfbd8ceb6670837
-      internalID: 282104436
+      spriteID: 9e5181a30ba679e4f86028ec5ceb58a0
+      internalID: -765984749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_1
+      name: HouseItems_Toilet
       rect:
         serializedVersion: 2
-        x: 130
-        y: 1688
-        width: 211
-        height: 337
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 219
+        y: 465
+        width: 60
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2649255}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f21c00bf03596384aace6901ac16299a
-      internalID: -183221325
+      spriteID: 86249d7fb46164844b02a837161d7a30
+      internalID: 1513207574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_2
+      name: HouseItems_Sink
       rect:
         serializedVersion: 2
-        x: 363
-        y: 1786
-        width: 836
-        height: 226
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 325
+        y: 445
+        width: 90
+        height: 83
+      alignment: 9
+      pivot: {x: 0.5, y: 0.28315863}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc2fcbfb26b67354885e7f2e102b465a
-      internalID: 2067012567
+      spriteID: 584222d67bae11f408788eb01f7753bc
+      internalID: -965102569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_3
+      name: HouseItems_Sin
       rect:
         serializedVersion: 2
-        x: 1243
-        y: 1723
-        width: 522
-        height: 302
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 453
+        y: 406
+        width: 131
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3219088}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3c38cb530114d2408438182c2969313
-      internalID: 847927152
+      spriteID: 8342db35c6c0a56479eec52bf32d7451
+      internalID: -681617752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_4
+      name: HouseItems_Fridge
       rect:
         serializedVersion: 2
-        x: 1809
-        y: 1828
-        width: 113
-        height: 169
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 40
+        y: 234
+        width: 60
+        height: 110
+      alignment: 9
+      pivot: {x: 0.5, y: 0.095871665}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45bf9bbee0e100449beac979565bb37a
-      internalID: -1657366310
+      spriteID: d256ea46020041e4aabb7698bc8cd3dd
+      internalID: 1054773176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_5
+      name: HouseItems_Sofa2
       rect:
         serializedVersion: 2
-        x: 21
-        y: 1280
-        width: 320
-        height: 394
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 167
+        y: 255
+        width: 130
+        height: 97
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4794966}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5092d28bda1e3f4a84441d59f64dc9c
-      internalID: -348455223
+      spriteID: d4c2025815745b54394a4760e9b4d2ac
+      internalID: 1066971601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_6
+      name: HouseItems_Table
       rect:
         serializedVersion: 2
-        x: 391
-        y: 1532
-        width: 43
-        height: 123
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 359
+        y: 254
+        width: 111
+        height: 77
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4687254}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 076cc0cc3d54deb4f8223eedeffd509b
-      internalID: 2123274902
+      spriteID: c39d75e46a512d845b85f346efabd31c
+      internalID: -2039914667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_7
+      name: HouseItems_Sofa1
       rect:
         serializedVersion: 2
-        x: 471
-        y: 1463
-        width: 452
-        height: 260
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 530
+        y: 269
+        width: 84
+        height: 75
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26677164}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa5ba3ae928559742a9b4c55661a7a0d
-      internalID: 200137391
+      spriteID: 4bd1fc1cbd1067f458a087ab04facb8a
+      internalID: -1343662018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_8
+      name: HouseItems_Rug
       rect:
         serializedVersion: 2
-        x: 1034
-        y: 1270
-        width: 981
-        height: 404
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 40
+        y: 49
+        width: 218
+        height: 131
+      alignment: 9
+      pivot: {x: 0.5, y: 1.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4277ff83ece5464bbe7cd26946bc4db
-      internalID: -568849375
+      spriteID: 7167452f01a6d4c428457a199128f19b
+      internalID: -1759307840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_9
+      name: HouseItems_Drawer
       rect:
         serializedVersion: 2
-        x: 58
-        y: 1013
-        width: 455
-        height: 167
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 340
+        y: 74
+        width: 60
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0.27841187}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c73d8372428f90c428c34caa690a0544
-      internalID: -832728620
+      spriteID: de7fe66f4a749f04dac244053910d38a
+      internalID: 88466567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_10
+      name: HouseItems_Bookshelf
       rect:
         serializedVersion: 2
-        x: 602
-        y: 952
-        width: 520
-        height: 302
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 543
+        y: 74
+        width: 58
+        height: 106
+      alignment: 9
+      pivot: {x: 0.5, y: 0.17985074}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21ef38626918fa8419b2f52514c8b983
-      internalID: -217396744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: World1_11
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 532
-        width: 454
-        height: 263
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19d91afbd3d01a74c910becee22f1127
-      internalID: -1439727902
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: World1_12
-      rect:
-        serializedVersion: 2
-        x: 1137
-        y: 594
-        width: 211
-        height: 336
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac6f2160911482a428e1a1f83715b8cc
-      internalID: 1224660234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: World1_13
-      rect:
-        serializedVersion: 2
-        x: 1388
-        y: 738
-        width: 102
-        height: 152
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64134fa77b89b514fa959c16a8480eeb
-      internalID: -783052344
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: World1_14
-      rect:
-        serializedVersion: 2
-        x: 1580
-        y: 550
-        width: 251
-        height: 356
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b28fb2b161578e409e2b86d7a029879
-      internalID: -666150285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: World1_15
-      rect:
-        serializedVersion: 2
-        x: 620
-        y: 550
-        width: 460
-        height: 168
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06299731cedee044792cf72cf6b8cf18
-      internalID: 1761733472
+      spriteID: 81a2ef6cd90273d419d309adf7603267
+      internalID: 974196431
       vertices: []
       indices: 
       edges: []
@@ -451,22 +346,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      World1_8: -568849375
-      World1_6: 2123274902
-      World1_3: 847927152
-      World1_1: -183221325
-      World1_5: -348455223
-      World1_4: -1657366310
-      World1_2: 2067012567
-      World1_9: -832728620
-      World1_13: -783052344
-      World1_12: 1224660234
-      World1_14: -666150285
-      World1_7: 200137391
-      World1_11: -1439727902
-      World1_15: 1761733472
-      World1_10: -217396744
-      World1_0: 282104436
+      HouseItems_6: -1917358401
+      HouseItems_Rug: -1759307840
+      HouseItems_8: -415344017
+      HouseItems_Bookshelf: 974196431
+      HouseItems_Toilet: 1513207574
+      HouseItems_Table: -2039914667
+      HouseItems_5: 1781466355
+      HouseItems_Sofa2: 1066971601
+      HouseItems_13: -558776854
+      HouseItems_Sofa1: -1343662018
+      HouseItems_7: 859654223
+      HouseItems_Fridge: 1054773176
+      HouseItems_12: -1699535499
+      HouseItems_Bed: -765984749
+      HouseItems_Drawer: 88466567
+      HouseItems_Sin: -681617752
+      HouseItems_14: 763786379
+      HouseItems_Sink: -965102569
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

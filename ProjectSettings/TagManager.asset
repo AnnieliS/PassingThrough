@@ -47,6 +47,9 @@ TagManager:
   - name: Player
     uniqueID: 294548771
     locked: 0
+  - name: StuckToWall
+    uniqueID: 4274267185
+    locked: 0
   - name: Foreground
     uniqueID: 1199824363
     locked: 0
