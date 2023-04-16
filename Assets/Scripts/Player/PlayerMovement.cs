@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -76,6 +74,16 @@ public class PlayerMovement : MonoBehaviour
         else{
             playerAnim.SetBool(dirc, false);
         }
+    }
+
+        public void StopPlayer(Component sender, object data)
+    {
+        speed = 0f;
+    }
+
+    public void RestorePlayer(Component sender, object data)
+    {
+        speed = moveSpeed;
     }
 
 
