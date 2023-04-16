@@ -1,5 +1,5 @@
 {
-    "name": "DefaultInput",
+    "name": "DenialInput",
     "maps": [
         {
             "name": "Player",
@@ -13,6 +13,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "2c08cc89-956c-499c-8a43-472d0c003dfc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "MultiTap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StopDia",
+                    "type": "Button",
+                    "id": "eaadfa4f-75c6-46dd-aafe-7a179c2dd58c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -24,6 +42,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;XR;Joystick",
                     "action": "Walk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38091ae4-78a4-4d58-bf80-cdc8a432b6b5",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e63ed53-6f80-4559-87a8-45a50f782e52",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StopDia",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -44,7 +44,6 @@ public class DialogueManager : MonoBehaviour
 
     private const string SPEAKER_TAG = "speaker";
     private const string PORTRAIT_TAG = "portrait";
-    private const string COLOR_TAG = "color";
 
     //kinda don't need this, but GTH for reference
 
@@ -73,8 +72,8 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
-        // get the layout animator
-        layoutAnimator = dialoguePanel.GetComponent<Animator>();
+        // get the layout animator - if we want to do characters speaking on different sides
+        // layoutAnimator = dialoguePanel.GetComponent<Animator>();
 
         // get all of the choices text 
         choicesText = new TextMeshProUGUI[choices.Length];
@@ -116,8 +115,8 @@ public class DialogueManager : MonoBehaviour
             dialogueVariables.StartListening(currentStory);
 
             // reset portrait, layout, and speaker
-            displayNameText.text = "Rosa";
-            // portraitAnimator.Play("Rosa");
+            displayNameText.text = "Laine";
+            portraitAnimator.Play("test1");
 
             ContinueStory();
         }
@@ -232,7 +231,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartConversation(Component sender, object data)
     {
-        if ((string)data == "NPC")
+        if ((string)data == "dialogue")
             startConvo = true;
     }
 
@@ -265,7 +264,7 @@ public class DialogueManager : MonoBehaviour
                     displayNameText.text = tagValue;
                     break;
                 case PORTRAIT_TAG:
-                    // portraitAnimator.Play(tagValue);
+                     portraitAnimator.Play(tagValue);
                     break;
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
