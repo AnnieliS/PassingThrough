@@ -20,6 +20,7 @@ public class PlayerActions : MonoBehaviour
 
     [Header("Params")]
     [SerializeField] float teleportShowTime = 0.2f;
+    [SerializeField] float dialogueContinueTime = 0.5f;
     bool canPressContinue = false;
     string clickTag = "";
 
@@ -37,6 +38,11 @@ public class PlayerActions : MonoBehaviour
         Debug.Log("click click");
         DialogueInteraction();
         Teleport();
+    }
+
+    void OnWalk()
+    {
+        DialogueContinue();
     }
 
     #region collision functions
@@ -58,18 +64,24 @@ public class PlayerActions : MonoBehaviour
     {
         if (clickTag == "dialogue")
         {
-            canPressContinue = true;
+            StartCoroutine(ResetPress());
             startDialogue.Raise(this, clickTag);
             pausePlayerMovement.Raise(this, "");
         }
 
+
+
+    }
+
+    private void DialogueContinue()
+    {
         if (canPressContinue)
         {
+            Debug.Log("continue");
             canPressContinue = false;
             continueDialogue.Raise(this, clickTag);
             StartCoroutine(ResetPress());
         }
-
     }
 
     void OnStopDia()
@@ -80,7 +92,7 @@ public class PlayerActions : MonoBehaviour
 
     private IEnumerator ResetPress()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(dialogueContinueTime);
         canPressContinue = true;
     }
 
@@ -99,7 +111,8 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    private IEnumerator SpriteShowDelay(float time){
+    private IEnumerator SpriteShowDelay(float time)
+    {
         yield return new WaitForSeconds(time);
         resumePlayerMovement.Raise(this, "");
         spriteRenderer.enabled = true;

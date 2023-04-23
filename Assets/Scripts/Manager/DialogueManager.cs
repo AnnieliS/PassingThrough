@@ -140,6 +140,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueStory()
     {
+            Debug.Log("continue");
         if (currentStory.canContinue)
         {
 
