@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 oldPos;
     bool isWalking;
     bool isMoving;
+    bool canMove = true;
     bool isFront = true;
 
     #region anim params
@@ -32,17 +33,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePlayer();
-        // FlipSprite();
+        if (canMove)
+        {
+            MovePlayer();
+            // FlipSprite();
+        }
     }
 
     void OnWalk(InputValue value)
     {
         Debug.Log("click");
-
-        oldPos = (Vector2)transform.position;
-        lastClickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        isMoving = true;
+        if (canMove)
+        {
+            oldPos = (Vector2)transform.position;
+            lastClickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            isMoving = true;
+        }
     }
 
     void MovePlayer()
@@ -68,21 +74,25 @@ public class PlayerMovement : MonoBehaviour
     void FlipSprite()
     {
         transform.localScale = new Vector2(-Mathf.Sign(transform.position.x - oldPos.x), 1f);
-        if(oldPos.y - lastClickPos.y > 0){
+        if (oldPos.y - lastClickPos.y > 0)
+        {
             playerAnim.SetBool(dirc, true);
         }
-        else{
+        else
+        {
             playerAnim.SetBool(dirc, false);
         }
     }
 
-        public void StopPlayer(Component sender, object data)
+    public void StopPlayer(Component sender, object data)
     {
+        canMove = false;
         speed = 0f;
     }
 
     public void RestorePlayer(Component sender, object data)
     {
+        canMove = true;
         speed = moveSpeed;
     }
 

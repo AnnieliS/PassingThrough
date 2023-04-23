@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class PlayerActions : MonoBehaviour
 {
+    #region events
     [Header("Events")]
     [SerializeField] GameEvent onDoubleClick;
     [Header("Dialogue Events")]
@@ -13,11 +14,23 @@ public class PlayerActions : MonoBehaviour
     [Header("Movement Events")]
     [SerializeField] GameEvent pausePlayerMovement;
     [SerializeField] GameEvent resumePlayerMovement;
+
+    #endregion
+
+    [Header("Params")]
+    [SerializeField] float teleportShowTime = 0.2f;
     bool canPressContinue = false;
     string clickTag = "";
 
     private GameObject tempGameObj;
+    private SpriteRenderer spriteRenderer;
 
+
+    private void Awake()
+    {
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     void OnInteract()
     {
         Debug.Log("click click");
@@ -76,8 +89,17 @@ public class PlayerActions : MonoBehaviour
     {
         if (clickTag == "teleport")
         {
+            spriteRenderer.enabled = false;
+            pausePlayerMovement.Raise(this, "");
+            StartCoroutine(SpriteShowDelay(teleportShowTime));
             gameObject.transform.position = tempGameObj.GetComponent<Teleporter>().destinationPoint.transform.position;
         }
+    }
+
+    private IEnumerator SpriteShowDelay(float time){
+        yield return new WaitForSeconds(time);
+        resumePlayerMovement.Raise(this, "");
+        spriteRenderer.enabled = true;
     }
 
 
