@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 63626980}
   - component: {fileID: 63626982}
   - component: {fileID: 63626981}
+  - component: {fileID: 63626983}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -290,6 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDialogue: {fileID: 11400000, guid: fc3f3048c6f3b6647a0c98da49f6d873, type: 2}
   resumePlayerMovement: {fileID: 11400000, guid: e27326a88cbe6504094feb9cea0c2890, type: 2}
+  endDialogue: {fileID: 11400000, guid: 878ffbbccf18ace499c084d1f13d162f, type: 2}
   loadGlobalsJSON: {fileID: 4900000, guid: ad5e3f230ffa4a742a6aed2c9ddc52a3, type: 3}
   typingSpeed: 0.04
   dialoguePanel: {fileID: 982338271}
@@ -373,6 +375,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: PressContinue
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &63626983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63626977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e6f5ed7175f6a4d9996a645a0f783f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 878ffbbccf18ace499c084d1f13d162f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 870884915}
+        m_TargetAssemblyTypeName: PlayerActions, Assembly-CSharp
+        m_MethodName: DisableDialogueBool
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1899,7 +1929,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870884908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.003, y: -1.202, z: 0}
+  m_LocalPosition: {x: -1.813, y: -3.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2006,6 +2036,7 @@ MonoBehaviour:
   resumePlayerMovement: {fileID: 11400000, guid: e27326a88cbe6504094feb9cea0c2890, type: 2}
   resetMousePos: {fileID: 11400000, guid: a981938205e5f274f901c74bec5cf23e, type: 2}
   teleportShowTime: 0.4
+  dialogueContinueTime: 0.5
 --- !u!4 &886059091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2782584539707942727, guid: a7ba26d840f78094d9f1765dd9b7ab82, type: 3}
@@ -2761,7 +2792,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490084799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.003, y: -0.44200003, z: -10}
+  m_LocalPosition: {x: -1.813, y: -3.1200001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

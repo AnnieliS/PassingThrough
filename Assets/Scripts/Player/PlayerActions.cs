@@ -21,7 +21,12 @@ public class PlayerActions : MonoBehaviour
     [Header("Params")]
     [SerializeField] float teleportShowTime = 0.2f;
     [SerializeField] float dialogueContinueTime = 0.5f;
+
+    #region dialogue params
     bool canPressContinue = false;
+    bool insideDialogue = false;
+
+    #endregion
     string clickTag = "";
 
     private GameObject tempGameObj;
@@ -64,6 +69,7 @@ public class PlayerActions : MonoBehaviour
     {
         if (clickTag == "dialogue")
         {
+            insideDialogue = true;
             StartCoroutine(ResetPress());
             startDialogue.Raise(this, clickTag);
             pausePlayerMovement.Raise(this, "");
@@ -86,7 +92,10 @@ public class PlayerActions : MonoBehaviour
 
     void OnStopDia()
     {
-        stopDialogue.Raise(this, "");
+        if (insideDialogue)
+        {
+            stopDialogue.Raise(this, "");
+        }
     }
 
 
@@ -96,7 +105,13 @@ public class PlayerActions : MonoBehaviour
         canPressContinue = true;
     }
 
+    public void DisableDialogueBool(){
+        insideDialogue = false;
+    }
+
     #endregion
+
+    #region teleportation functions
 
     private void Teleport()
     {
@@ -117,6 +132,8 @@ public class PlayerActions : MonoBehaviour
         resumePlayerMovement.Raise(this, "");
         spriteRenderer.enabled = true;
     }
+
+    #endregion
 
 
 }

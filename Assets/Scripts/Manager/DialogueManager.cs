@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     // [SerializeField] private PlayerActions inputManager;
     [SerializeField] private GameEvent startDialogue;
     [SerializeField] private GameEvent resumePlayerMovement;
+    [SerializeField] private GameEvent endDialogue;
     bool pressedContinue = false;
     [Header("Load Globals JSON")]
     [SerializeField] private TextAsset loadGlobalsJSON;
@@ -130,7 +131,7 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator ExitDialogueMode()
     {
         yield return new WaitForSeconds(0.2f);
-
+        endDialogue.Raise(this, "");
         dialogueVariables.StopListening(currentStory);
         resumePlayerMovement.Raise(this, "");
         dialogueIsPlaying = false;
@@ -140,7 +141,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueStory()
     {
-            Debug.Log("continue");
+            
         if (currentStory.canContinue)
         {
 
