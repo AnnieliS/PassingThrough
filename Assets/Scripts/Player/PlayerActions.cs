@@ -14,6 +14,7 @@ public class PlayerActions : MonoBehaviour
     [Header("Movement Events")]
     [SerializeField] GameEvent pausePlayerMovement;
     [SerializeField] GameEvent resumePlayerMovement;
+    [SerializeField] GameEvent resetMousePos;
 
     #endregion
 
@@ -89,10 +90,12 @@ public class PlayerActions : MonoBehaviour
     {
         if (clickTag == "teleport")
         {
+            Vector3 newTeleportPosition = tempGameObj.GetComponent<Teleporter>().destinationPoint.transform.position;
             spriteRenderer.enabled = false;
             pausePlayerMovement.Raise(this, "");
+            resetMousePos.Raise(this, newTeleportPosition);
             StartCoroutine(SpriteShowDelay(teleportShowTime));
-            gameObject.transform.position = tempGameObj.GetComponent<Teleporter>().destinationPoint.transform.position;
+            gameObject.transform.position = newTeleportPosition;
         }
     }
 

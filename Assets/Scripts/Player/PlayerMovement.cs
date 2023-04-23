@@ -96,5 +96,11 @@ public class PlayerMovement : MonoBehaviour
         speed = moveSpeed;
     }
 
+    public void ChangeLastMousePos(Component sender, object data){
+        Vector3 newpos = (Vector3)data;
+
+        lastClickPos = newpos;
+    }
+
 
 }
