@@ -22,7 +22,7 @@ public class CollectibleItem : MonoBehaviour
     public void PickupItem()
     {
         pickupEvent.Raise(this, gameObject);
-        // Destroy(gameObject);
+        Destroy(gameObject);
     }
     
     private void OnMouseEnter() {
