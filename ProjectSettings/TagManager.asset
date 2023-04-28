@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - dialogue
+  - teleport
+  - ui
   layers:
   - Default
   - TransparentFX

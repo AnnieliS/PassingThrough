@@ -53,13 +53,22 @@ public class PlayerActions : MonoBehaviour
     #region collision functions
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("enter " + other.tag);
         clickTag = other.tag;
         tempGameObj = other.gameObject;
+        if(clickTag == "ui"){
+            pausePlayerMovement.Raise(this, tempGameObj);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log("exit " + other.tag);
+        if(other.tag == "ui"){
+            resumePlayerMovement.Raise(this, "");
+        }
         clickTag = "";
+        
     }
 
     #endregion
