@@ -15,6 +15,8 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] GameEvent pausePlayerMovement;
     [SerializeField] GameEvent resumePlayerMovement;
     [SerializeField] GameEvent resetMousePos;
+    [Header("Items Events")]
+    [SerializeField] GameEvent pickupItem;
 
     #endregion
 
@@ -43,6 +45,7 @@ public class PlayerActions : MonoBehaviour
         Debug.Log("click click");
         DialogueInteraction();
         Teleport();
+        ItemPickup();
     }
 
     void OnWalk()
@@ -144,5 +147,15 @@ public class PlayerActions : MonoBehaviour
 
     #endregion
 
+#region items functions
+
+
+void ItemPickup(){
+    if(clickTag == "item"){
+        tempGameObj.GetComponent<CollectibleItem>().PickupItem();
+    }
+}
+
+#endregion
 
 }
