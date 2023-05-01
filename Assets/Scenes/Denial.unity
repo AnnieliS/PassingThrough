@@ -1995,6 +1995,7 @@ GameObject:
   - component: {fileID: 870884911}
   - component: {fileID: 870884914}
   - component: {fileID: 870884916}
+  - component: {fileID: 870884917}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2043,11 +2044,11 @@ SpriteRenderer:
   m_SortingLayerID: 294548771
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ff2d7a84fd1ee174c9bac9b8dadfeb41, type: 3}
+  m_Sprite: {fileID: 619866315, guid: 9653416c5bfa77f4ab05a7662ba82de4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -2063,7 +2064,7 @@ Transform:
   m_GameObject: {fileID: 870884908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.813, y: -3.88, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.36249998, y: 0.7875, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2132,7 +2133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68805fc65e1df2f4998a100900f7ef27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 0.7
+  playerAnim: {fileID: 870884917}
 --- !u!70 &870884914
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2185,6 +2187,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StopPlayer: {fileID: 11400000, guid: 86b84f4dd73e087478b2384331cce088, type: 2}
   ResumePlayer: {fileID: 11400000, guid: e27326a88cbe6504094feb9cea0c2890, type: 2}
+--- !u!95 &870884917
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870884908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 702af0ebe852f9543b93a88dbec29d3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &882283019
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,6 +4360,7 @@ MonoBehaviour:
   - {fileID: 377278369}
   - {fileID: 2013162774}
   - {fileID: 1174417100}
+  allItems: []
 --- !u!1 &1777038141
 GameObject:
   m_ObjectHideFlags: 0

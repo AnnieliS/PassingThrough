@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed = 10f;
     private float moveSpeed;
-    Animator playerAnim;
+    [SerializeField] Animator playerAnim;
     Rigidbody2D myRigidbody;
     Vector2 lastClickPos;
     Vector2 oldPos;
@@ -14,10 +14,11 @@ public class PlayerMovement : MonoBehaviour
     bool isMoving;
     bool canMove = true;
     bool isFront = true;
+    bool horizontalFace;
 
     #region anim params
     string walk = "isWalking";
-    string dirc = "isFront";
+    string dirc = "faceDirection";
     #endregion
 
 
@@ -48,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
             oldPos = (Vector2)transform.position;
             lastClickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isMoving = true;
+            FaceDirection();
         }
     }
 
@@ -56,22 +58,22 @@ public class PlayerMovement : MonoBehaviour
         if (isMoving && (float)transform.position.x != lastClickPos.x)
         {
             Debug.Log("move");
-            // playerAnim.SetBool(walk, true);
+            playerAnim.SetBool(walk, true);
             float step = speed * Time.deltaTime;
             Vector2 goTo = new Vector2(lastClickPos.x, transform.position.y);
             // transform.position = Vector2.MoveTowards(transform.position, goTo, step);
             transform.position = Vector2.MoveTowards(transform.position, lastClickPos, step);
-
+            
         }
         else
         {
-            // playerAnim.SetBool(walk, false);
+            playerAnim.SetBool(walk, false);
             isWalking = false;
             isMoving = false;
         }
     }
 
-    void FlipSprite()
+   /* void FlipSprite()
     {
         transform.localScale = new Vector2(-Mathf.Sign(transform.position.x - oldPos.x), 1f);
         if (oldPos.y - lastClickPos.y > 0)
@@ -88,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
     {
         canMove = false;
         speed = 0f;
-    }
+    } */
 
     public void RestorePlayer(Component sender, object data)
     {
@@ -102,5 +104,39 @@ public class PlayerMovement : MonoBehaviour
         lastClickPos = newpos;
     }
 
+    public void FaceDirection()
+    {
+        float posX = oldPos.x - lastClickPos.x;
+        float posY = oldPos.y - lastClickPos.y;
+        if (Mathf.Abs(posX) >= Mathf.Abs(posY))
+        {
+            horizontalFace = true;
+        }
+        else
+        {
+            horizontalFace = false;
+        }
 
+        if (horizontalFace)
+        {
+            if (posX <= 0)
+            {
+                playerAnim.SetInteger(dirc, 0);
+            } else
+            {
+                playerAnim.SetInteger(dirc, 1);
+            }
+        } else
+        {
+            if (posY >= 0)
+            {
+                playerAnim.SetInteger(dirc, 2);
+            }
+            else
+            {
+                playerAnim.SetInteger(dirc, 3);
+            }
+        }
+
+    }
 }
