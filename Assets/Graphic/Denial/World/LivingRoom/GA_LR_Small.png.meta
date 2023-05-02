@@ -1,0 +1,463 @@
+fileFormatVersion: 2
+guid: a1dd4f1e6ba12de48bd1ad42d95dabe3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 400
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GA_LR_Small_Door
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1673
+        width: 167
+        height: 321
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcdc17a627da71d4ebff019f2f0ca825
+      internalID: 77698569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Wall0
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 1217
+        width: 551
+        height: 815
+      alignment: 9
+      pivot: {x: 0.02186543, y: 0.089516334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 277f24364cc2e114ead592b34b0b38e6
+      internalID: -1083527540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Wall1
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 1217
+        width: 21
+        height: 813
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c505444548459454c9fe661aa4e95ca8
+      internalID: 1694537422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Stairs
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 1246
+        width: 564
+        height: 735
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767d086cd191b4740be72cb91dff97bc
+      internalID: 1912232343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Clock
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 1024
+        width: 378
+        height: 981
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb1341ba35a6e347b3329cca1b5fd3e
+      internalID: -730706418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Plant
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 1178
+        width: 126
+        height: 457
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02d5b113de216242af8e28377d9fab6
+      internalID: 1293173188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Baba
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 964
+        width: 112
+        height: 223
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7c2fd953d5f1f4c9f450868b62f213
+      internalID: 244198857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Wall3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 1239
+        height: 964
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e30b20cecb3a014a99dceb80462e05f
+      internalID: 1446091201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Couch
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 638
+        width: 570
+        height: 317
+      alignment: 9
+      pivot: {x: 0.5, y: 0.12}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 827ee9797f2f3ca41aa725f03e85bf9a
+      internalID: 1926724937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Garlic
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 356
+        width: 80
+        height: 251
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47257304e640750419aab663aeddb878
+      internalID: -710378211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Table
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 403
+        width: 589
+        height: 187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a35c30917b40953428f14fa3a3c78e01
+      internalID: 84139293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Lamp
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 33
+        width: 285
+        height: 314
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8069759efba9ba4da1e7d6d4f089827
+      internalID: -2012865383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_TV
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 23
+        width: 214
+        height: 334
+      alignment: 9
+      pivot: {x: 0.5, y: 0.12}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3355bc38bb26613428c62764c51e4e4b
+      internalID: -625333894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Pics
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 964
+        width: 145
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1100e22ffc80d24fa3cdebc584f162c
+      internalID: 919668989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GA_LR_Small_Pics2
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 956
+        width: 146
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4bbdf9e52f9344c87571e0eb5a3a42
+      internalID: -686366789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GA_LR_Small_Plant: 1293173188
+      GA_LR_Small_Wall1: 1694537422
+      GA_LR_Small_16: -210856996
+      GA_LR_Small_Lamp: -2012865383
+      GA_LR_Small_18: -1258379338
+      GA_LR_Small_12: 1805759271
+      GA_LR_Small_11: -2026961702
+      GA_LR_Small_Garlic: -710378211
+      GA_LR_Small_17: -94306106
+      GA_LR_Small_Clock: -730706418
+      GA_LR_Small_Couch: 1926724937
+      GA_LR_Small_Pics2: -686366789
+      GA_LR_Small_Baba: 244198857
+      GA_LR_Small_Wall0: -1083527540
+      GA_LR_Small_Door: 77698569
+      GA_LR_Small_Pics: 919668989
+      GA_LR_Small_Stairs: 1912232343
+      GA_LR_Small_9: -1637513232
+      GA_LR_Small_TV: -625333894
+      GA_LR_Small_13: -1014313501
+      GA_LR_Small_10: -49898660
+      GA_LR_Small_Table: 84139293
+      GA_LR_Small_Wall3: 1446091201
+      GA_LR_Small_14: -206902878
+      GA_LR_Small_15: -783018980
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
