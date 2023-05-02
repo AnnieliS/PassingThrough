@@ -4319,6 +4319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1765550932}
   - component: {fileID: 1765550933}
+  - component: {fileID: 1765550934}
   m_Layer: 0
   m_Name: InventoryManager
   m_TagString: Untagged
@@ -4361,6 +4362,34 @@ MonoBehaviour:
   - {fileID: 2013162774}
   - {fileID: 1174417100}
   allItems: []
+--- !u!114 &1765550934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765550931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e6f5ed7175f6a4d9996a645a0f783f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 24d9401d903cd7e469e0266eed81e459, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1765550933}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: PickedUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1777038141
 GameObject:
   m_ObjectHideFlags: 0
@@ -5192,7 +5221,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
