@@ -5,39 +5,53 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed = 10f;
-    private float moveSpeed;
     [SerializeField] Animator playerAnim;
+    private float moveSpeed;
     Rigidbody2D myRigidbody;
+
+    Transform playerTransform;
+
+    #region mouse params
     Vector2 lastClickPos;
     Vector2 oldPos;
+
+    #endregion
+
+    #region anim params
     bool isWalking;
     bool isMoving;
     bool canMove = true;
     bool isFront = true;
     bool horizontalFace;
-
-    #region anim params
     string walk = "isWalking";
     string dirc = "faceDirection";
     #endregion
 
+    #region scale params
+    [SerializeField] float scaleMulti;
+    [SerializeField] GameObject vanishingPoint;
+
+    Vector3 baseSize;
+
+    #endregion
 
     // Start is called before the first frame update
     void Awake()
     {
-        // playerAnim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        playerTransform = GetComponent<Transform>();
         moveSpeed = speed;
+        baseSize = new Vector3(playerTransform.localScale.x, playerTransform.localScale.y, playerTransform.localScale.z);
         // playerAnim.SetBool(dirc, true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        ScalePlayer();
         if (canMove)
         {
             MovePlayer();
-            // FlipSprite();
         }
     }
 
@@ -63,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
             Vector2 goTo = new Vector2(lastClickPos.x, transform.position.y);
             // transform.position = Vector2.MoveTowards(transform.position, goTo, step);
             transform.position = Vector2.MoveTowards(transform.position, lastClickPos, step);
-            
+
         }
         else
         {
@@ -73,24 +87,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-   /* void FlipSprite()
+    void ScalePlayer()
     {
-        transform.localScale = new Vector2(-Mathf.Sign(transform.position.x - oldPos.x), 1f);
-        if (oldPos.y - lastClickPos.y > 0)
-        {
-            playerAnim.SetBool(dirc, true);
-        }
-        else
-        {
-            playerAnim.SetBool(dirc, false);
-        }
+        float newScale = Vector2.Distance(playerTransform.position, vanishingPoint.transform.position)*scaleMulti;
+        newScale = Mathf.Clamp(newScale, 0.75f, 1f);
+        Debug.Log(newScale);
+        playerTransform.localScale = new Vector3(baseSize.x * newScale, baseSize.y * newScale, baseSize.z * newScale);
     }
 
-    public void StopPlayer(Component sender, object data)
-    {
-        canMove = false;
-        speed = 0f;
-    } */
 
     public void RestorePlayer(Component sender, object data)
     {
@@ -98,13 +102,16 @@ public class PlayerMovement : MonoBehaviour
         speed = moveSpeed;
     }
 
-    public void ChangeLastMousePos(Component sender, object data){
+    public void ChangeLastMousePos(Component sender, object data)
+    {
         Vector3 newpos = (Vector3)data;
 
         lastClickPos = newpos;
     }
 
-    public void FaceDirection()
+
+
+    void FaceDirection()
     {
         float posX = oldPos.x - lastClickPos.x;
         float posY = oldPos.y - lastClickPos.y;
@@ -122,11 +129,13 @@ public class PlayerMovement : MonoBehaviour
             if (posX <= 0)
             {
                 playerAnim.SetInteger(dirc, 0);
-            } else
+            }
+            else
             {
                 playerAnim.SetInteger(dirc, 1);
             }
-        } else
+        }
+        else
         {
             if (posY >= 0)
             {
