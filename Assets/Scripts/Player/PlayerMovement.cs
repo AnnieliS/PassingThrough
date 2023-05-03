@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float newScale = Vector2.Distance(playerTransform.position, vanishingPoint.transform.position)*scaleMulti;
         newScale = Mathf.Clamp(newScale, 0.75f, 1f);
-        Debug.Log(newScale);
+        // Debug.Log(newScale);
         playerTransform.localScale = new Vector3(baseSize.x * newScale, baseSize.y * newScale, baseSize.z * newScale);
     }
 
