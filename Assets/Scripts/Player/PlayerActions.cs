@@ -16,7 +16,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] GameEvent resumePlayerMovement;
     [SerializeField] GameEvent resetMousePos;
     [Header("Items Events")]
-    [SerializeField] GameEvent pickupItem;
+    [SerializeField] GameEvent tvChannelSurf;
 
     #endregion
 
@@ -46,6 +46,7 @@ public class PlayerActions : MonoBehaviour
         DialogueInteraction();
         Teleport();
         ItemPickup();
+        TVClick();
     }
 
     void OnWalk()
@@ -153,6 +154,12 @@ public class PlayerActions : MonoBehaviour
 void ItemPickup(){
     if(clickTag == "item"){
         tempGameObj.GetComponent<CollectibleItem>().PickupItem();
+    }
+}
+
+void TVClick(){
+    if(clickTag == "tv"){
+        tvChannelSurf.Raise(this, "");
     }
 }
 

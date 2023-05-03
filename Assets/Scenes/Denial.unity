@@ -559,6 +559,7 @@ Transform:
   - {fileID: 1681829459}
   - {fileID: 41964728}
   - {fileID: 1765550932}
+  - {fileID: 1417624145}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3076,7 +3077,7 @@ MonoBehaviour:
   pausePlayerMovement: {fileID: 11400000, guid: 86b84f4dd73e087478b2384331cce088, type: 2}
   resumePlayerMovement: {fileID: 11400000, guid: e27326a88cbe6504094feb9cea0c2890, type: 2}
   resetMousePos: {fileID: 11400000, guid: a981938205e5f274f901c74bec5cf23e, type: 2}
-  pickupItem: {fileID: 0}
+  tvChannelSurf: {fileID: 11400000, guid: dbe1ccdcea725e04e98e54f5a310ff54, type: 2}
   teleportShowTime: 0.4
   dialogueContinueTime: 0.5
 --- !u!114 &870884916
@@ -3511,9 +3512,10 @@ GameObject:
   - component: {fileID: 954417686}
   - component: {fileID: 954417687}
   - component: {fileID: 954417688}
+  - component: {fileID: 954417689}
   m_Layer: 0
   m_Name: TVFlicker
-  m_TagString: Untagged
+  m_TagString: tv
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3625,15 +3627,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light2d: {fileID: 954417687}
-  possibleColors:
-  - {r: 0.8584906, g: 0.23082057, b: 0.23082057, a: 1}
-  - {r: 0.16838734, g: 0.47476465, b: 0.8301887, a: 1}
-  - {r: 0.7282196, g: 0.7830189, b: 0.16620687, a: 1}
-  - {r: 0.24227563, g: 0.78431374, b: 0.16470587, a: 1}
-  - {r: 0.6351707, g: 0.16470587, b: 0.78431374, a: 1}
-  - {r: 0.78431374, g: 0.6670336, b: 0.16470587, a: 1}
+  numOfChannel: 3
+  channel1:
+  - {r: 1, g: 0.13679248, b: 0.13679248, a: 1}
+  - {r: 0.3301887, g: 0.048282307, b: 0.048282307, a: 1}
+  - {r: 0.7924528, g: 0.39245135, b: 0.20558919, a: 1}
+  channel2:
+  - {r: 0, g: 0.71154267, b: 0.8679245, a: 1}
+  - {r: 0, g: 0.30133185, b: 0.3679245, a: 1}
+  - {r: 0.034843344, g: 0.8207547, b: 0.54723126, a: 1}
+  channel3:
+  - {r: 0.9613839, g: 0.3254717, b: 1, a: 1}
+  - {r: 0.3651347, g: 0, b: 0.6320754, a: 1}
+  - {r: 0.5283019, g: 0.07725169, b: 0.5024076, a: 1}
   minTime: 0.2
   maxTime: 0.7
+--- !u!61 &954417689
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954417685}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.021312952, y: -0.11656165}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0426254, y: 1.2331233}
+  m_EdgeRadius: 0
 --- !u!1 &960969837
 GameObject:
   m_ObjectHideFlags: 0
@@ -5055,6 +5089,66 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &1417624144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417624145}
+  - component: {fileID: 1417624146}
+  m_Layer: 0
+  m_Name: InteractionsManagers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417624145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417624144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 100307975}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1417624146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417624144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e6f5ed7175f6a4d9996a645a0f783f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: dbe1ccdcea725e04e98e54f5a310ff54, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 954417688}
+        m_TargetAssemblyTypeName: TVFlicker, Assembly-CSharp
+        m_MethodName: ChangeChangeChannel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1425982484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8075672090881179747, guid: 98d3282afab1e5f4797b3b86c44d3b54, type: 3}
