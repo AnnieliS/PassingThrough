@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(canMove);
         ScalePlayer();
         if (canMove)
         {
@@ -100,6 +101,12 @@ public class PlayerMovement : MonoBehaviour
     {
         canMove = true;
         speed = moveSpeed;
+    }
+
+        public void PausePlayer(Component sender, object data)
+    {
+        canMove = false;
+        speed = 0f;
     }
 
     public void ChangeLastMousePos(Component sender, object data)

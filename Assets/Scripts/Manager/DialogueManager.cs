@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     // [SerializeField] private PlayerActions inputManager;
     [SerializeField] private GameEvent startDialogue;
     [SerializeField] private GameEvent resumePlayerMovement;
+    [SerializeField] private GameEvent pausePlayerMovement;
     [SerializeField] private GameEvent endDialogue;
     bool pressedContinue = false;
     [Header("Load Globals JSON")]
@@ -108,6 +109,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (startConvo)
         {
+            pausePlayerMovement.Raise(this, "");
             startConvo = false;
             startDialogue.Raise(this, "");
             currentStory = new Story(inkJSON.text);
@@ -117,8 +119,8 @@ public class DialogueManager : MonoBehaviour
             dialogueVariables.StartListening(currentStory);
 
             // reset portrait, layout, and speaker
-            displayNameText.text = "Laine";
-            portraitAnimator.Play("test1");
+            displayNameText.text = "Rachel";
+            portraitAnimator.Play("rachelDef");
 
             ContinueStory();
         }

@@ -44,7 +44,7 @@ public class PlayerActions : MonoBehaviour
     {
         Debug.Log("click click");
         DialogueInteraction();
-        Teleport();
+        // Teleport();
         ItemPickup();
         TVClick();
     }
@@ -80,12 +80,11 @@ public class PlayerActions : MonoBehaviour
     #region Dialogue Function
     private void DialogueInteraction()
     {
-        if (clickTag == "dialogue")
+        if (clickTag == "dialogue" && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
-            insideDialogue = true;
+            pausePlayerMovement.Raise(this, "");
             StartCoroutine(ResetPress());
             startDialogue.Raise(this, clickTag);
-            pausePlayerMovement.Raise(this, "");
         }
 
 

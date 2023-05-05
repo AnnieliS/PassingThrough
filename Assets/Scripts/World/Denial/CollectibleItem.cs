@@ -11,6 +11,7 @@ public class CollectibleItem : MonoBehaviour
     public int id;
     [Header("Pickup Event")]
     [SerializeField] GameEvent pickupEvent;
+    [SerializeField] GameObject itemCanvas;
 
     private SpriteRenderer spriteRenderer;
 
@@ -22,6 +23,8 @@ public class CollectibleItem : MonoBehaviour
     public void PickupItem()
     {
         pickupEvent.Raise(this, gameObject);
+        itemCanvas.SetActive(true);
+        itemCanvas.GetComponent<FadeInAndOut>().Activate(inventorySprite);
         Destroy(gameObject);
     }
     
