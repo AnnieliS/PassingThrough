@@ -48,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(canMove);
         ScalePlayer();
         if (canMove)
         {
@@ -56,9 +55,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnWalk(InputValue value)
+    void OnSingleClick(InputValue value)
     {
-        Debug.Log("click");
         if (canMove)
         {
             oldPos = (Vector2)transform.position;

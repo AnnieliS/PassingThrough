@@ -7,20 +7,24 @@ public class StopPlayerOnHover : MonoBehaviour
 {
     [SerializeField] GameEvent StopPlayer;
     [SerializeField] GameEvent ResumePlayer;
+    [SerializeField] GameEvent MouseOverPuzzlePieceDND;
+
     bool needChange = false;
 
     bool isMouseOverUi = false;
 
     int UILayer;
+    int DndPuzzleLayer;
 
     private void Start()
     {
         UILayer = LayerMask.NameToLayer("UI");
+        DndPuzzleLayer = LayerMask.NameToLayer("DND Puzzle Piece");
     }
 
     private void Update()
     {
-        Debug.Log("need change " + needChange);
+        
         IsPointerOverUIElement();
         if (needChange)
         {
@@ -50,16 +54,19 @@ public class StopPlayerOnHover : MonoBehaviour
         for (int index = 0; index < eventSystemRaysastResults.Count; index++)
         {
             RaycastResult curRaysastResult = eventSystemRaysastResults[index];
+            if (curRaysastResult.gameObject.layer == DndPuzzleLayer){
+
+            }
             if (curRaysastResult.gameObject.layer == UILayer)
             {
-                Debug.Log("is mouse over ui" + isMouseOverUi);
+                // Debug.Log("is mouse over ui" + isMouseOverUi);
                 if (isMouseOverUi == false)
                     needChange = true;
                 isMouseOverUi = true;
                 return true;
             }
         }
-        Debug.Log("is mouse over ui" + isMouseOverUi);
+        // Debug.Log("is mouse over ui" + isMouseOverUi);
         if (isMouseOverUi)
             needChange = true;
         isMouseOverUi = false;

@@ -6,7 +6,7 @@
             "id": "df70fa95-8a34-4494-b137-73ab6b9c7d37",
             "actions": [
                 {
-                    "name": "Walk",
+                    "name": "SingleClick",
                     "type": "Button",
                     "id": "ab06b5d9-2dc3-4df4-9d44-1a84d9dc5e6f",
                     "expectedControlType": "Button",
@@ -41,7 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;XR;Joystick",
-                    "action": "Walk",
+                    "action": "SingleClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

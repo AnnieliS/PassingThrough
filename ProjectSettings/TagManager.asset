@@ -16,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - DND Puzzle Piece
   - 
   - 
   - 
@@ -57,4 +57,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1199824363
+    locked: 0
+  - name: Puzzles
+    uniqueID: 501782063
     locked: 0

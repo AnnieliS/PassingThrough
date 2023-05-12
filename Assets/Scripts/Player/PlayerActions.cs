@@ -42,14 +42,14 @@ public class PlayerActions : MonoBehaviour
     }
     void OnInteract()
     {
-        Debug.Log("click click");
+        
         DialogueInteraction();
         // Teleport();
         ItemPickup();
         TVClick();
     }
 
-    void OnWalk()
+    void OnSingleClick()
     {
         DialogueContinue();
     }
@@ -57,7 +57,7 @@ public class PlayerActions : MonoBehaviour
     #region collision functions
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("enter " + other.tag);
+        // Debug.Log("enter " + other.tag);
         clickTag = other.tag;
         tempGameObj = other.gameObject;
         if(clickTag == "ui"){
@@ -67,7 +67,7 @@ public class PlayerActions : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("exit " + other.tag);
+        // Debug.Log("exit " + other.tag);
         if(other.tag == "ui"){
             resumePlayerMovement.Raise(this, "");
         }
@@ -95,7 +95,7 @@ public class PlayerActions : MonoBehaviour
     {
         if (canPressContinue)
         {
-            Debug.Log("continue");
+            // Debug.Log("continue");
             canPressContinue = false;
             continueDialogue.Raise(this, clickTag);
             StartCoroutine(ResetPress());

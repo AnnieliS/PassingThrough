@@ -51,7 +51,6 @@ public class TVFlicker : MonoBehaviour
     public void ChangeChangeChannel(Component sender, object data)
     {
         channel++;
-        Debug.Log(channel);
         if (channel == numOfChannel) channel = 0;
 
         switch (channel)
