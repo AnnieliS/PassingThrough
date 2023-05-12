@@ -9,6 +9,7 @@ TagManager:
   - ui
   - item
   - tv
+  - dragonDropCamera
   layers:
   - Default
   - TransparentFX

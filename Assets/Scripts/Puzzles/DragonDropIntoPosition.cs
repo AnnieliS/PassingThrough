@@ -5,11 +5,20 @@ using UnityEngine;
 public class DragonDropIntoPosition : MonoBehaviour
 {
     [SerializeField] GameObject correctPosition;
+    Camera cam;
+    Vector3 resetPosition;
     bool moving;
-    bool press;
+    bool finish = false;
 
     float startPosX;
     float startPosY;
+
+    private void Start()
+    {
+        GameObject tmp = GameObject.FindGameObjectWithTag("dragonDropCamera");
+        cam = tmp.GetComponent<Camera>();
+        resetPosition = this.transform.localPosition;
+    }
 
 
 
@@ -17,13 +26,14 @@ public class DragonDropIntoPosition : MonoBehaviour
     void Update()
     {
         Debug.Log("moving " + moving);
-        if (moving)
+        if (moving && !finish)
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;
+            Debug.Log("before screentoworldpoint" + mousePos);
             new WaitForEndOfFrame();
-            Vector3 mousePos2 = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mousePos.z));
-            Debug.Log(mousePos2);
+            Vector3 mousePos2 = cam.ScreenToWorldPoint(mousePos);
+            Debug.Log("after screentoworldpoint" + mousePos2);
 
 
             this.gameObject.transform.localPosition = new Vector3(mousePos2.x - startPosX, mousePos2.y - startPosY, this.gameObject.transform.localPosition.z);
@@ -38,7 +48,7 @@ public class DragonDropIntoPosition : MonoBehaviour
             Vector3 mousePos;
 
             mousePos = Input.mousePosition;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            mousePos = cam.ScreenToWorldPoint(mousePos);
 
             startPosX = mousePos.x - this.transform.localPosition.x;
             startPosY = mousePos.y - this.transform.localPosition.y;
@@ -50,12 +60,22 @@ public class DragonDropIntoPosition : MonoBehaviour
     private void OnMouseUp()
     {
         moving = false;
-        press = false;
+
+        CheckIfOnTarget();
     }
 
-    public void PressPuzzlePiece(Component sender, object data)
+    private void CheckIfOnTarget()
     {
-        press = true;
+        if (Mathf.Abs(this.transform.localPosition.x - correctPosition.transform.localPosition.x) <= 0.5f &&
+            Mathf.Abs(this.transform.localPosition.y - correctPosition.transform.localPosition.y) <= 0.5)
+        {
+            this.transform.localPosition = new Vector3(correctPosition.transform.localPosition.x, correctPosition.transform.localPosition.y, correctPosition.transform.localPosition.z);
+            finish = true;
+        }
+        else
+        {
+                this.transform.localPosition = new Vector3 (resetPosition.x, resetPosition.y, resetPosition.z);
+        }
     }
 
 }
