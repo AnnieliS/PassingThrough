@@ -9,7 +9,8 @@ TagManager:
   - ui
   - item
   - tv
-  - dragonDropCamera
+  - rotatePlaceCheck
+  - puzzleCamera
   layers:
   - Default
   - TransparentFX

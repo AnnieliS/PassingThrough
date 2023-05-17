@@ -15,7 +15,7 @@ public class DragonDropIntoPosition : MonoBehaviour
 
     private void Start()
     {
-        GameObject tmp = GameObject.FindGameObjectWithTag("dragonDropCamera");
+        GameObject tmp = GameObject.FindGameObjectWithTag("puzzleCamera");
         cam = tmp.GetComponent<Camera>();
         resetPosition = this.transform.localPosition;
     }
