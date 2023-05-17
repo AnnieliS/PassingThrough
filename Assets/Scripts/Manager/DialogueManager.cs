@@ -107,6 +107,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+        Debug.Log("start dialogue");
         if (startConvo)
         {
             pausePlayerMovement.Raise(this, "");

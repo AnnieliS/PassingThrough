@@ -73,11 +73,16 @@ public class RotateIntoPosition : MonoBehaviour
 
     public void InPosition(){
         // Debug.Log("finished");
+        this.GetComponent<Collider2D>().enabled = false;
         finish = true;
     }
 
     public bool GetMoving(){
         return moving;
+    }
+
+    public bool GetFinished(){
+        return finish;
     }
 
     // private void CheckIfOnTarget()

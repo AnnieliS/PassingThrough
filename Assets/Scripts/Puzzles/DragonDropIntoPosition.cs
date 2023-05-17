@@ -5,6 +5,7 @@ using UnityEngine;
 public class DragonDropIntoPosition : MonoBehaviour
 {
     [SerializeField] GameObject correctPosition;
+    DragonDropManager manager;
     Camera cam;
     Vector3 resetPosition;
     bool moving;
@@ -18,6 +19,7 @@ public class DragonDropIntoPosition : MonoBehaviour
         GameObject tmp = GameObject.FindGameObjectWithTag("puzzleCamera");
         cam = tmp.GetComponent<Camera>();
         resetPosition = this.transform.localPosition;
+        manager = GetComponentInParent<DragonDropManager>();
     }
 
 
@@ -71,11 +73,16 @@ public class DragonDropIntoPosition : MonoBehaviour
         {
             this.transform.localPosition = new Vector3(correctPosition.transform.localPosition.x, correctPosition.transform.localPosition.y, correctPosition.transform.localPosition.z);
             finish = true;
+            manager.PieceInRightPlace();
         }
         else
         {
                 this.transform.localPosition = new Vector3 (resetPosition.x, resetPosition.y, resetPosition.z);
         }
+    }
+
+    public bool GetFinished(){
+        return finish;
     }
 
 }

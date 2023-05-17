@@ -11,6 +11,7 @@ TagManager:
   - tv
   - rotatePlaceCheck
   - puzzleCamera
+  - puzzle
   layers:
   - Default
   - TransparentFX

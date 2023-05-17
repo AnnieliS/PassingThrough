@@ -17,6 +17,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] GameEvent resetMousePos;
     [Header("Items Events")]
     [SerializeField] GameEvent tvChannelSurf;
+    [SerializeField] GameEvent puzzle;
 
     #endregion
 
@@ -40,6 +41,10 @@ public class PlayerActions : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
+    private void Update() {
+        Debug.Log(clickTag);
+    }
     void OnInteract()
     {
         
@@ -47,6 +52,7 @@ public class PlayerActions : MonoBehaviour
         // Teleport();
         ItemPickup();
         TVClick();
+        Puzzle();
     }
 
     void OnSingleClick()
@@ -55,6 +61,7 @@ public class PlayerActions : MonoBehaviour
     }
 
     #region collision functions
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Debug.Log("enter " + other.tag);
@@ -82,6 +89,7 @@ public class PlayerActions : MonoBehaviour
     {
         if (clickTag == "dialogue" && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
+            Debug.Log("start dialogue 1");
             pausePlayerMovement.Raise(this, "");
             StartCoroutine(ResetPress());
             startDialogue.Raise(this, clickTag);
@@ -160,6 +168,20 @@ void TVClick(){
     if(clickTag == "tv"){
         tvChannelSurf.Raise(this, "");
     }
+}
+
+void Puzzle(){
+    if(clickTag == "puzzle"){
+        puzzle.Raise(this, tempGameObj);
+        clickTag = "";
+        
+    }
+}
+
+public void DetectOverObject(Component sender, object data){
+    string tmptag = (string)data;
+    clickTag = tmptag;
+    tempGameObj = sender.gameObject;
 }
 
 #endregion

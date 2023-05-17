@@ -6,6 +6,13 @@ public class GameManager : MonoBehaviour
     
 #region Canvases
     [SerializeField] GameObject quitCanvas;
+    [SerializeField] GameObject inventoryCanvas;
+#endregion
+
+#region cameras
+    [Header("Cameras")]
+    [SerializeField] Camera mainCamera;
+    [SerializeField] Camera puzzleCamera;
 #endregion
 
     #region  Events
@@ -30,7 +37,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         quitCanvas.SetActive(false);
+        ResetCameras();
+    }
 
+    void ResetCameras(){
+        mainCamera.enabled = true;
+        puzzleCamera.enabled = false;
     }
 
     public static GameManager GetInstance()
@@ -40,7 +52,30 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    
+    #region puzzle functions
+
+    public void SwitchToPuzzleCamera(){
+        mainCamera.enabled = false;
+        puzzleCamera.enabled = true;
+    }
+
+        public void ActivatePuzzle(Component sender, object data)
+    {
+        GameObject puzzle = (GameObject)data;
+        Debug.Log("click puzzle: " + puzzle.name);
+        inventoryCanvas.SetActive(false);
+        puzzle.GetComponent<PuzzleActivation>().miniGame.SetActive(true);
+        
+    }
+
+     public void DeactivatePuzzle(Component sender, object data){
+        GameObject puzzle = (GameObject)data;
+        puzzle.SetActive(false);
+        inventoryCanvas.SetActive(true);
+        ResetCameras();
+     }
+
+    #endregion
     
     #region quit functions
 
