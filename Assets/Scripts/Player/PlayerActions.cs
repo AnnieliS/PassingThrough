@@ -26,7 +26,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] float dialogueContinueTime = 0.5f;
 
     #region dialogue params
-    bool canPressContinue = false;
+    bool canPressContinue = true;
     bool insideDialogue = false;
 
     #endregion
@@ -43,7 +43,7 @@ public class PlayerActions : MonoBehaviour
     }
 
     private void Update() {
-        Debug.Log(clickTag);
+        // Debug.Log(clickTag);
     }
     void OnInteract()
     {
@@ -89,7 +89,7 @@ public class PlayerActions : MonoBehaviour
     {
         if (clickTag == "dialogue" && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
-            Debug.Log("start dialogue 1");
+            Debug.Log("start dialogue player action");
             pausePlayerMovement.Raise(this, "");
             StartCoroutine(ResetPress());
             startDialogue.Raise(this, clickTag);
@@ -115,6 +115,7 @@ public class PlayerActions : MonoBehaviour
         if (insideDialogue)
         {
             stopDialogue.Raise(this, "");
+            clickTag = "";
         }
     }
 
@@ -127,6 +128,7 @@ public class PlayerActions : MonoBehaviour
 
     public void DisableDialogueBool(){
         insideDialogue = false;
+        clickTag = "";
     }
 
     #endregion

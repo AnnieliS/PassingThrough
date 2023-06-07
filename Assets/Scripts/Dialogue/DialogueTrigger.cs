@@ -43,6 +43,14 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+    private void OnMouseEnter() {
+        playerInRange = true;
+    }
+
+    private void OnMouseExit() {
+        playerInRange = false;
+    }
+
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")

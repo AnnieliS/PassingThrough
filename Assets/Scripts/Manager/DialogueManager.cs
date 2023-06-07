@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameEvent resumePlayerMovement;
     [SerializeField] private GameEvent pausePlayerMovement;
     [SerializeField] private GameEvent endDialogue;
+    [SerializeField] private GameEvent resetPlayerClicktag;
     bool pressedContinue = false;
     [Header("Load Globals JSON")]
     [SerializeField] private TextAsset loadGlobalsJSON;
@@ -107,7 +108,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
-        Debug.Log("start dialogue");
+        Debug.Log("start dialogue - manager");
         if (startConvo)
         {
             pausePlayerMovement.Raise(this, "");
@@ -134,6 +135,7 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator ExitDialogueMode()
     {
         yield return new WaitForSeconds(0.2f);
+        resetPlayerClicktag.Raise(this, "");
         endDialogue.Raise(this, "");
         dialogueVariables.StopListening(currentStory);
         resumePlayerMovement.Raise(this, "");
