@@ -49,7 +49,7 @@ public class PlayerActions : MonoBehaviour
     {
         
         DialogueInteraction();
-        // Teleport();
+        Teleport();
         ItemPickup();
         TVClick();
         Puzzle();

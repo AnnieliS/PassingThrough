@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ScalePlayer();
+        // ScalePlayer();
         if (canMove)
         {
             MovePlayer();
@@ -86,13 +86,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void ScalePlayer()
-    {
-        float newScale = Vector2.Distance(playerTransform.position, vanishingPoint.transform.position)*scaleMulti;
-        newScale = Mathf.Clamp(newScale, 0.75f, 1f);
-        // Debug.Log(newScale);
-        playerTransform.localScale = new Vector3(baseSize.x * newScale, baseSize.y * newScale, baseSize.z * newScale);
-    }
+    // void ScalePlayer()
+    // {
+    //     float newScale = Vector2.Distance(playerTransform.position, vanishingPoint.transform.position)*scaleMulti;
+    //     newScale = Mathf.Clamp(newScale, 0.75f, 1f);
+    //     // Debug.Log(newScale);
+    //     playerTransform.localScale = new Vector3(baseSize.x * newScale, baseSize.y * newScale, baseSize.z * newScale);
+    // }
 
 
     public void RestorePlayer(Component sender, object data)
