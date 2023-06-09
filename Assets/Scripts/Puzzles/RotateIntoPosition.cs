@@ -56,7 +56,7 @@ public class RotateIntoPosition : MonoBehaviour
 
             mousePos = Input.mousePosition;
             mousePos = cam.ScreenToWorldPoint(mousePos);
-            Debug.Log(mousePos);
+            // Debug.Log(mousePos);
             startPosX = mousePos.x - this.transform.localPosition.x;
             startPosY = mousePos.y - this.transform.localPosition.y;
 

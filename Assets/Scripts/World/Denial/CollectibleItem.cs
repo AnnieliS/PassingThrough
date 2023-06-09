@@ -12,6 +12,8 @@ public class CollectibleItem : MonoBehaviour
     [Header("Pickup Event")]
     [SerializeField] GameEvent pickupEvent;
     [SerializeField] GameObject itemCanvas;
+    [SerializeField] GameEvent mouseChange;
+    [SerializeField] GameEvent onMouseHover;
 
     private SpriteRenderer spriteRenderer;
 
@@ -31,9 +33,14 @@ public class CollectibleItem : MonoBehaviour
     
     private void OnMouseEnter() {
         spriteRenderer.sprite = hoverSprite;
+        onMouseHover.Raise(this, this.gameObject.tag);
+        mouseChange.Raise(this, "item");
+
     }
 
     private void OnMouseExit() {
         spriteRenderer.sprite = worldSprite;
+        onMouseHover.Raise(this, "");
+        mouseChange.Raise(this, "def");
     }
 }

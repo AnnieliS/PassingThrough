@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - onMouseHover: {fileID: 11400000, guid: a2ad9fdc30355f94e9699707493f1cc6, type: 2}
+  - changeCursos: {fileID: 11400000, guid: 52e6d5bb3836fcf4da83ce47613bf3f1, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

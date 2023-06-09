@@ -103,3 +103,5 @@ MonoBehaviour:
   id: 0
   pickupEvent: {fileID: 11400000, guid: 24d9401d903cd7e469e0266eed81e459, type: 2}
   itemCanvas: {fileID: 0}
+  mouseChange: {fileID: 11400000, guid: 52e6d5bb3836fcf4da83ce47613bf3f1, type: 2}
+  onMouseHover: {fileID: 11400000, guid: a2ad9fdc30355f94e9699707493f1cc6, type: 2}

@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isMoving && (float)transform.position.x != lastClickPos.x)
         {
-            Debug.Log("move");
+            // Debug.Log("move");
             playerAnim.SetBool(walk, true);
             float step = speed * Time.deltaTime;
             Vector2 goTo = new Vector2(lastClickPos.x, transform.position.y);

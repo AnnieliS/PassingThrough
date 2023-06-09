@@ -14,14 +14,14 @@ public class RotateIntoPositionPlaceCheck : MonoBehaviour
         {
             RotateIntoPosition codeCheck;
             codeCheck = other.gameObject.GetComponentInParent<RotateIntoPosition>();
-            Debug.Log(codeCheck.GetMoving());
+            // Debug.Log(codeCheck.GetMoving());
             if (!codeCheck.GetMoving())
             {
                 codeCheck.InPosition();
 
                 if (CheckForPuzzleSuccess())
                 {
-                    Debug.Log("get the puzzle reward");
+                    // Debug.Log("get the puzzle reward");
                     StartCoroutine(FinishPuzzle());
                 }
 

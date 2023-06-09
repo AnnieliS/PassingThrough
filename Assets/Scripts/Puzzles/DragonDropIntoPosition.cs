@@ -27,15 +27,15 @@ public class DragonDropIntoPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("moving " + moving);
+        // Debug.Log("moving " + moving);
         if (moving && !finish)
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;
-            Debug.Log("before screentoworldpoint" + mousePos);
+            // Debug.Log("before screentoworldpoint" + mousePos);
             new WaitForEndOfFrame();
             Vector3 mousePos2 = cam.ScreenToWorldPoint(mousePos);
-            Debug.Log("after screentoworldpoint" + mousePos2);
+            // Debug.Log("after screentoworldpoint" + mousePos2);
 
 
             this.gameObject.transform.localPosition = new Vector3(mousePos2.x - startPosX, mousePos2.y - startPosY, this.gameObject.transform.localPosition.z);
@@ -46,7 +46,7 @@ public class DragonDropIntoPosition : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("mouse click click click");
+            // Debug.Log("mouse click click click");
             Vector3 mousePos;
 
             mousePos = Input.mousePosition;

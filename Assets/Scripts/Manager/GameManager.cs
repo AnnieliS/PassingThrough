@@ -16,6 +16,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] Camera puzzleCamera;
     #endregion
 
+    #region cursors
+    [Header("Mouse Cursors")]
+    [SerializeField] Texture2D defCursor;
+    [SerializeField] Texture2D teleportCursor;
+    [SerializeField] Texture2D itemCursor;
+    #endregion
+
     #region texts
     [Header("Ink JSON Text Files")]
     [SerializeField] private TextAsset initalDialogue;
@@ -32,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     #region init params
     bool quitCanvasOpen = false;
+
+    private int selectedItem;
     #endregion
 
     #region inits
@@ -50,6 +59,7 @@ public class GameManager : MonoBehaviour
         inventoryCanvas.SetActive(false);
         ResetCameras();
         StartingDialogue();
+        Cursor.SetCursor(defCursor, new Vector2(-0.5f, 0.5f), CursorMode.Auto);
     }
 
     void ResetCameras()
@@ -85,7 +95,7 @@ public class GameManager : MonoBehaviour
     public void ActivatePuzzle(Component sender, object data)
     {
         GameObject puzzle = (GameObject)data;
-        Debug.Log("click puzzle: " + puzzle.name);
+        // Debug.Log("click puzzle: " + puzzle.name);
         inventoryCanvas.SetActive(false);
         puzzle.GetComponent<PuzzleActivation>().miniGame.SetActive(true);
 
@@ -102,6 +112,32 @@ public class GameManager : MonoBehaviour
     #endregion
 
 
+    #region UI function
+    public void SwitchMouse(Component sender, object data)
+    {
+        string mouseType = (string)data;
+        Vector2 hotspot = new Vector2(-0.5f, 0.5f);
+        
+
+        switch (mouseType){
+        case "teleport":
+            Cursor.SetCursor(teleportCursor, hotspot, CursorMode.Auto);
+        break;
+
+        case "item":
+        Cursor.SetCursor(itemCursor, hotspot, CursorMode.Auto);
+        break;
+
+        default:
+        Cursor.SetCursor(defCursor, hotspot, CursorMode.Auto);
+        break;
+        }
+
+    }
+
+
+    #endregion
+
     #region  inventory functions
 
     public void ShowInventory()
@@ -115,6 +151,16 @@ public class GameManager : MonoBehaviour
         inventoryCanvas.SetActive(false);
         inventoryButtonCanvas.SetActive(true);
     }
+
+    public int GetSelectedItem(){
+        return selectedItem;
+    }
+
+    public void SetSelectedItem(Component sender, object data){
+        selectedItem = (int)data;
+    }
+
+
 
     #endregion
 
