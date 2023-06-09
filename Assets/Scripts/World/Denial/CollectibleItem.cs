@@ -22,9 +22,10 @@ public class CollectibleItem : MonoBehaviour
 
     public void PickupItem()
     {
-        pickupEvent.Raise(this, gameObject);
         itemCanvas.SetActive(true);
         itemCanvas.GetComponent<FadeInAndOut>().Activate(inventorySprite);
+        itemCanvas.GetComponent<FadeInAndOut>().Activate2();
+        pickupEvent.Raise(this, gameObject);
         Destroy(gameObject);
     }
     

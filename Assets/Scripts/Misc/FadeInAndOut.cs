@@ -10,7 +10,7 @@ public class FadeInAndOut : MonoBehaviour
     [SerializeField] float fadeOutSpeed;
     [SerializeField] float stayTime;
     Image image;
-    private bool fadeOut, fadeIn, wait, ongoing;
+    private bool fadeOut, fadeIn, wait, ongoing, hasImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,8 @@ public class FadeInAndOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!ongoing)
+        
+        if (!ongoing && hasImage)
         {
             ongoing = true;
             FadeIn();
@@ -54,6 +55,8 @@ public class FadeInAndOut : MonoBehaviour
             if (image.color.a <= 0)
             {
                 fadeOut = false;
+                image.sprite = null;
+                hasImage = false;
                 gameObject.SetActive(false);
             }
         }
@@ -73,6 +76,9 @@ public class FadeInAndOut : MonoBehaviour
 
     public void Activate(Sprite item){
         image.sprite = item;
+        hasImage = true;
+    }
+    public void Activate2(){
         ongoing = false;
     }
 

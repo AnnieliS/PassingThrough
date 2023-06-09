@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     #region Canvases
     [SerializeField] GameObject quitCanvas;
     [SerializeField] GameObject inventoryCanvas;
+    [SerializeField] GameObject inventoryButtonCanvas;
     #endregion
 
     #region cameras
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         quitCanvas.SetActive(false);
+        inventoryButtonCanvas.SetActive(true);
+        inventoryCanvas.SetActive(false);
         ResetCameras();
         StartingDialogue();
     }
@@ -94,6 +97,23 @@ public class GameManager : MonoBehaviour
         puzzle.SetActive(false);
         inventoryCanvas.SetActive(true);
         ResetCameras();
+    }
+
+    #endregion
+
+
+    #region  inventory functions
+
+    public void ShowInventory()
+    {
+        inventoryCanvas.SetActive(true);
+        inventoryButtonCanvas.SetActive(false);
+    }
+
+    public void HideInventory()
+    {
+        inventoryCanvas.SetActive(false);
+        inventoryButtonCanvas.SetActive(true);
     }
 
     #endregion

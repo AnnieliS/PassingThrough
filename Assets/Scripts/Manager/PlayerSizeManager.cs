@@ -21,8 +21,6 @@ public class PlayerSizeManager : MonoBehaviour
 
         baseSize = player.localScale;
     }
-
-    // Update is called once per frame
     void Update()
     {
         float minDistance = Mathf.Infinity;
@@ -45,14 +43,14 @@ public class PlayerSizeManager : MonoBehaviour
 
         if (closestScale.scale > 1)
         {
-            newScale = Mathf.Clamp(closestScale.scale/multi , 1f, closestScale.scale);
+            newScale = Mathf.Clamp(closestScale.scale/multi , 2f, closestScale.scale);
 
             player.localScale = new Vector3(baseSize.x * newScale, baseSize.y * newScale, baseSize.z * newScale);
         }
 
         else
         {
-            newScale = Mathf.Clamp(closestScale.scale*multi , closestScale.scale, 1f);
+            newScale = Mathf.Clamp(closestScale.scale*multi , closestScale.scale, 2f);
 
             player.localScale = new Vector3(baseSize.x * newScale, baseSize.y * newScale, baseSize.z * newScale);
         }

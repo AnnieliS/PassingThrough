@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2707910188452594970}
   m_Layer: 0
   m_Name: ItemBase
-  m_TagString: Untagged
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldSprite: {fileID: 0}
+  hoverSprite: {fileID: 0}
   inventorySprite: {fileID: 0}
   id: 0
   pickupEvent: {fileID: 11400000, guid: 24d9401d903cd7e469e0266eed81e459, type: 2}
+  itemCanvas: {fileID: 0}
