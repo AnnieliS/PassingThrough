@@ -1,5 +1,7 @@
 using UnityEngine;
 using Ink.Runtime;
+using System.Collections.Generic;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject quitCanvas;
     [SerializeField] GameObject inventoryCanvas;
     [SerializeField] GameObject inventoryButtonCanvas;
+    [SerializeField] GameObject getRecipeCanvas;
+    [SerializeField] GameObject recipeCanvas;
     #endregion
 
     #region cameras
@@ -36,9 +40,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameEvent pausePlayer;
     #endregion
     private static GameManager instance;
+    private StoryEvents storyEvents;
+
+    #region Recipe
+    [Header("recipe")]
+    [SerializeField] GameObject recipeButton;
+    [SerializeField] GameObject recipeCutsceneImage;
+    [SerializeField] GameObject recipeTextImage;
+
+
+
+    #endregion
 
     #region init params
     bool quitCanvasOpen = false;
+    bool recipeCanvasOpen = false;
+    Animation getRecipeAnim;
 
     private int selectedItem;
     #endregion
@@ -59,8 +76,14 @@ public class GameManager : MonoBehaviour
         inventoryCanvas.SetActive(false);
         ResetCameras();
         StartingDialogue();
+        ResetRecipe();
         Cursor.SetCursor(defCursor, new Vector2(-0.5f, 0.5f), CursorMode.Auto);
+
+
+        storyEvents = new StoryEvents();
+
     }
+
 
     void ResetCameras()
     {
@@ -74,7 +97,14 @@ public class GameManager : MonoBehaviour
         switchClicktagToDialogue.Raise(this, "dialogue");
         dialogueStart.Raise(this, "dialogue");
         DialogueManager.GetInstance().EnterDialogueMode(initalDialogue);
+    }
 
+    void ResetRecipe(){
+        getRecipeCanvas.SetActive(false);
+        getRecipeAnim = getRecipeCanvas.GetComponentInChildren<Animation>();
+        // recipeButton.SetActive(false);
+        recipeCutsceneImage.SetActive(true);
+        recipeTextImage.SetActive(false);
     }
 
     public static GameManager GetInstance()
@@ -117,20 +147,21 @@ public class GameManager : MonoBehaviour
     {
         string mouseType = (string)data;
         Vector2 hotspot = new Vector2(-0.5f, 0.5f);
-        
 
-        switch (mouseType){
-        case "teleport":
-            Cursor.SetCursor(teleportCursor, hotspot, CursorMode.Auto);
-        break;
 
-        case "item":
-        Cursor.SetCursor(itemCursor, hotspot, CursorMode.Auto);
-        break;
+        switch (mouseType)
+        {
+            case "teleport":
+                Cursor.SetCursor(teleportCursor, hotspot, CursorMode.Auto);
+                break;
 
-        default:
-        Cursor.SetCursor(defCursor, hotspot, CursorMode.Auto);
-        break;
+            case "item":
+                Cursor.SetCursor(itemCursor, hotspot, CursorMode.Auto);
+                break;
+
+            default:
+                Cursor.SetCursor(defCursor, hotspot, CursorMode.Auto);
+                break;
         }
 
     }
@@ -152,12 +183,34 @@ public class GameManager : MonoBehaviour
         inventoryButtonCanvas.SetActive(true);
     }
 
-    public int GetSelectedItem(){
+    public int GetSelectedItem()
+    {
         return selectedItem;
     }
 
-    public void SetSelectedItem(Component sender, object data){
+    public void SetSelectedItem(Component sender, object data)
+    {
         selectedItem = (int)data;
+    }
+
+    public void GotRecipe(Component sender, object data)
+    {
+        getRecipeCanvas.SetActive(true);
+        storyEvents.gotRecipe = true;
+        StartCoroutine("TurnOffGotRecipe");
+    }
+
+    IEnumerator TurnOffGotRecipe()
+    {
+        yield return new WaitForSeconds(getRecipeAnim.clip.length);
+        recipeCutsceneImage.SetActive(false);
+        recipeTextImage.SetActive(true);
+        getRecipeCanvas.SetActive(false);
+    }
+
+    public void ToggleRecipeCanvas(){
+        recipeCanvasOpen = !recipeCanvasOpen;
+        recipeCanvas.SetActive(recipeCanvasOpen);
     }
 
 
