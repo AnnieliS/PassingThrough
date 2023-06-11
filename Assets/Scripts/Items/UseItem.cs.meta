@@ -3,7 +3,10 @@ guid: 91a0c7a013b42e249835402d2e3e185b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cannotUseYetInk: {instanceID: 0}
+  - mouseOver: {fileID: 11400000, guid: a2ad9fdc30355f94e9699707493f1cc6, type: 2}
+  - startConvo: {fileID: 11400000, guid: fc3f3048c6f3b6647a0c98da49f6d873, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

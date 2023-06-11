@@ -51,6 +51,7 @@ public class PlayerActions : MonoBehaviour
         DialogueInteraction();
         Teleport();
         ItemPickup();
+        UseItem();
         TVClick();
         Puzzle();
     }
@@ -64,9 +65,9 @@ public class PlayerActions : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Debug.Log("enter " + other.tag);
-        clickTag = other.tag;
-        tempGameObj = other.gameObject;
+        // // Debug.Log("enter " + other.tag);
+        // clickTag = other.tag;
+        // tempGameObj = other.gameObject;
         if(clickTag == "ui"){
             pausePlayerMovement.Raise(this, tempGameObj);
         }
@@ -78,7 +79,7 @@ public class PlayerActions : MonoBehaviour
         if(other.tag == "ui"){
             resumePlayerMovement.Raise(this, "");
         }
-        clickTag = "";
+        // clickTag = "";
         
     }
 
@@ -165,6 +166,16 @@ void ItemPickup(){
         tempGameObj.GetComponent<CollectibleItem>().PickupItem();
     }
 }
+
+void UseItem(){
+    if(clickTag == "itemUse"){
+        tempGameObj.GetComponent<UseItem>().ClickedPlaceToUse();
+    }
+}
+
+#endregion
+
+#region other functions
 
 void TVClick(){
     if(clickTag == "tv"){

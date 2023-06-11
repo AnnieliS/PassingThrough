@@ -4,15 +4,54 @@ using UnityEngine;
 
 public class UseItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] int itemIdToUse;
+    [SerializeField] int[] eventsPrecondition;
+    [SerializeField] private TextAsset cannotUseYetInk;
+    [SerializeField] GameEvent mouseOver;
+    [SerializeField] GameEvent startConvo;
+
+    ItemUseManager itemsManager = new ItemUseManager();
+
+    public void ClickedPlaceToUse()
     {
-        
+        Debug.Log("clicked item space to use");
+        Debug.Log("item selected in manager" + GameManager.GetInstance().GetSelectedItem());
+        if (GameManager.GetInstance().GetSelectedItem() == itemIdToUse)
+        {
+            for (int i = 0; i < eventsPrecondition.Length; i++)
+            {
+                if (!StoryEvents.Instance.CheckPrecondition(eventsPrecondition[i]))
+                {
+                    if (!DialogueManager.GetInstance().dialogueIsPlaying) DialogueManager.GetInstance().EnterDialogueMode(cannotUseYetInk);
+                    return;
+                }
+
+            }
+
+            itemsManager.UseFunction(itemIdToUse);
+        }
+        else
+        {
+            if (!DialogueManager.GetInstance().dialogueIsPlaying)
+            {
+                Debug.Log("can start no item dialogue");
+                DialogueManager.GetInstance().EnterDialogueMode(cannotUseYetInk);
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseEnter()
     {
-        
+        startConvo.Raise(this, "dialogue");
+        mouseOver.Raise(this, this.gameObject.tag);
     }
+
+    private void OnMouseExit()
+    {
+        mouseOver.Raise(this, "");
+    }
+
+
+
+
 }

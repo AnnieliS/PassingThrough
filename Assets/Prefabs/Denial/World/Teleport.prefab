@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationPoint: {fileID: 0}
+  mouseOver: {fileID: 11400000, guid: a2ad9fdc30355f94e9699707493f1cc6, type: 2}
 --- !u!61 &6023356173992850963
 BoxCollider2D:
   m_ObjectHideFlags: 0

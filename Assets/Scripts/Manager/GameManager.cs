@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
     void ResetRecipe(){
         getRecipeCanvas.SetActive(false);
         getRecipeAnim = getRecipeCanvas.GetComponentInChildren<Animation>();
-        // recipeButton.SetActive(false);
+        recipeButton.SetActive(false);
         recipeCutsceneImage.SetActive(true);
         recipeTextImage.SetActive(false);
     }
@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
     {
         return instance;
     }
+
 
     #endregion
 

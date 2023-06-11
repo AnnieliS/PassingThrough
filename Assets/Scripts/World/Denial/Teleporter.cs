@@ -7,4 +7,14 @@ public class Teleporter : MonoBehaviour
 
     public GameObject destinationPoint;
 
+    [SerializeField] GameEvent mouseOver;
+
+    private void OnMouseEnter() {
+        mouseOver.Raise(this, this.gameObject.tag);
+    }
+
+    private void OnMouseExit() {
+        mouseOver.Raise(this, "");
+    }
+
 }
