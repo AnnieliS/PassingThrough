@@ -11,16 +11,19 @@ public class UseItem : MonoBehaviour
     [SerializeField] GameEvent startConvo;
 
     ItemUseManager itemsManager = new ItemUseManager();
+    StoryEvents storyEvents = new StoryEvents();
 
     public void ClickedPlaceToUse()
     {
         Debug.Log("clicked item space to use");
-        Debug.Log("item selected in manager" + GameManager.GetInstance().GetSelectedItem());
+        Debug.Log("item selected in manager: " + GameManager.GetInstance().GetSelectedItem());
         if (GameManager.GetInstance().GetSelectedItem() == itemIdToUse)
         {
             for (int i = 0; i < eventsPrecondition.Length; i++)
             {
-                if (!StoryEvents.Instance.CheckPrecondition(eventsPrecondition[i]))
+                Debug.Log("object precondition: " + eventsPrecondition[i]);
+                Debug.Log("precondiyion Check: " + storyEvents.CheckPrecondition(2));
+                if (storyEvents.CheckPrecondition(eventsPrecondition[i]))
                 {
                     if (!DialogueManager.GetInstance().dialogueIsPlaying) DialogueManager.GetInstance().EnterDialogueMode(cannotUseYetInk);
                     return;

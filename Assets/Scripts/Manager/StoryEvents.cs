@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class StoryEvents
 {
-    public static StoryEvents Instance { get; private set; }
+    private static StoryEvents Instance;
 
-    public bool isChairInPlace = false; // event 1
-    public bool gotRecipe = false; // event 2
+    public bool gotRecipe = false; // event 1
+    public bool isChairInPlace = false; // event 2
 
     private void Awake()
     {
@@ -23,17 +23,22 @@ public class StoryEvents
         }
     }
 
+     public static StoryEvents GetInstance()
+    {
+        return Instance;
+    }
+
     public bool CheckPrecondition(int preconditionID)
     {
 
         switch (preconditionID)
         {
             case 1:
-                return isChairInPlace;
+                return gotRecipe;
 
 
             case 2:
-                return gotRecipe;
+                return isChairInPlace;
 
 
             default:
@@ -47,12 +52,12 @@ public class StoryEvents
         switch (eventID)
         {
             case 1:
-                isChairInPlace = true;
+                gotRecipe = true;
                 break;
 
 
             case 2:
-                gotRecipe = true;
+                isChairInPlace = true;
                 break;
 
 

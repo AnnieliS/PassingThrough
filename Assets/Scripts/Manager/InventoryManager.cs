@@ -11,7 +11,9 @@ public class InventoryManager : MonoBehaviour
 
     [Header("Item Use Places")]
     public SpriteRenderer stoolUse;
+    public GameObject box;
     public List<CollectibleItem> allItems = new List<CollectibleItem>();
+    StoryEvents storyEvents = new StoryEvents();
     private static InventoryManager instance;
     int offset = 0;
 

@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject quitCanvas;
     [SerializeField] GameObject inventoryCanvas;
     [SerializeField] GameObject inventoryButtonCanvas;
-    [SerializeField] GameObject getRecipeCanvas;
     [SerializeField] GameObject recipeCanvas;
     #endregion
 
@@ -55,7 +54,7 @@ public class GameManager : MonoBehaviour
     #region init params
     bool quitCanvasOpen = false;
     bool recipeCanvasOpen = false;
-    Animation getRecipeAnim;
+    Animator getRecipeAnim;
 
     private int selectedItem;
     #endregion
@@ -100,11 +99,11 @@ public class GameManager : MonoBehaviour
     }
 
     void ResetRecipe(){
-        getRecipeCanvas.SetActive(false);
-        getRecipeAnim = getRecipeCanvas.GetComponentInChildren<Animation>();
-        recipeButton.SetActive(false);
+        getRecipeAnim = recipeCanvas.GetComponentInChildren<Animator>();
         recipeCutsceneImage.SetActive(true);
         recipeTextImage.SetActive(false);
+        recipeCanvas.SetActive(false);
+        recipeButton.SetActive(false);
     }
 
     public static GameManager GetInstance()
@@ -194,19 +193,21 @@ public class GameManager : MonoBehaviour
         selectedItem = (int)data;
     }
 
-    public void GotRecipe(Component sender, object data)
+    public void GotRecipe()
     {
-        getRecipeCanvas.SetActive(true);
+        // Debug.Log("anim lenght : " + getRecipeAnim.GetCurrentAnimatorStateInfo(1).);
+        recipeCanvas.SetActive(true);
         storyEvents.gotRecipe = true;
+        recipeButton.SetActive(true);
         StartCoroutine("TurnOffGotRecipe");
     }
 
     IEnumerator TurnOffGotRecipe()
     {
-        yield return new WaitForSeconds(getRecipeAnim.clip.length);
+        yield return new WaitForSeconds(8f);
         recipeCutsceneImage.SetActive(false);
         recipeTextImage.SetActive(true);
-        getRecipeCanvas.SetActive(false);
+        recipeCanvas.SetActive(false);
     }
 
     public void ToggleRecipeCanvas(){
