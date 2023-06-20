@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         inventoryButtonCanvas.SetActive(true);
         inventoryCanvas.SetActive(false);
         ResetCameras();
-        StartingDialogue();
+        // StartingDialogue();
         ResetRecipe();
         Cursor.SetCursor(defCursor, new Vector2(-0.5f, 0.5f), CursorMode.Auto);
 

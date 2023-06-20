@@ -21,9 +21,14 @@ public class PlayerActions : MonoBehaviour
 
     #endregion
 
+
     [Header("Params")]
     [SerializeField] float teleportShowTime = 0.2f;
     [SerializeField] float dialogueContinueTime = 0.5f;
+    #region misc
+    [Header("Misc")]
+    [SerializeField] GameObject teleportCanvas;
+    #endregion
 
     #region dialogue params
     bool canPressContinue = true;
@@ -42,12 +47,13 @@ public class PlayerActions : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Update() {
+    private void Update()
+    {
         // Debug.Log(clickTag);
     }
     void OnInteract()
     {
-        
+
         DialogueInteraction();
         Teleport();
         ItemPickup();
@@ -68,7 +74,8 @@ public class PlayerActions : MonoBehaviour
         // // Debug.Log("enter " + other.tag);
         // clickTag = other.tag;
         // tempGameObj = other.gameObject;
-        if(clickTag == "ui"){
+        if (clickTag == "ui")
+        {
             pausePlayerMovement.Raise(this, tempGameObj);
         }
     }
@@ -76,11 +83,12 @@ public class PlayerActions : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         // Debug.Log("exit " + other.tag);
-        if(other.tag == "ui"){
+        if (other.tag == "ui")
+        {
             resumePlayerMovement.Raise(this, "");
         }
         // clickTag = "";
-        
+
     }
 
     #endregion
@@ -127,7 +135,8 @@ public class PlayerActions : MonoBehaviour
         canPressContinue = true;
     }
 
-    public void DisableDialogueBool(){
+    public void DisableDialogueBool()
+    {
         insideDialogue = false;
         clickTag = "";
     }
@@ -140,8 +149,17 @@ public class PlayerActions : MonoBehaviour
     {
         if (clickTag == "teleport")
         {
+            teleportCanvas.SetActive(true);
+
             Vector3 newTeleportPosition = tempGameObj.GetComponent<Teleporter>().destinationPoint.transform.position;
             spriteRenderer.enabled = false;
+            if (tempGameObj.tag == "teleport")
+            {
+                Sprite image = tempGameObj.GetComponent<Teleporter>().teleportImage;
+                FadeInAndOut fade = teleportCanvas.GetComponent<FadeInAndOut>();
+                fade.Activate(image);
+                fade.Activate2();
+            }
             pausePlayerMovement.Raise(this, "");
             resetMousePos.Raise(this, newTeleportPosition);
             StartCoroutine(SpriteShowDelay(teleportShowTime));
@@ -158,45 +176,54 @@ public class PlayerActions : MonoBehaviour
 
     #endregion
 
-#region items functions
+    #region items functions
 
 
-void ItemPickup(){
-    if(clickTag == "item"){
-        tempGameObj.GetComponent<CollectibleItem>().PickupItem();
+    void ItemPickup()
+    {
+        if (clickTag == "item")
+        {
+            tempGameObj.GetComponent<CollectibleItem>().PickupItem();
+        }
     }
-}
 
-void UseItem(){
-    if(clickTag == "itemUse"){
-        tempGameObj.GetComponent<UseItem>().ClickedPlaceToUse();
+    void UseItem()
+    {
+        if (clickTag == "itemUse")
+        {
+            tempGameObj.GetComponent<UseItem>().ClickedPlaceToUse();
+        }
     }
-}
 
-#endregion
+    #endregion
 
-#region other functions
+    #region other functions
 
-void TVClick(){
-    if(clickTag == "tv"){
-        tvChannelSurf.Raise(this, "");
+    void TVClick()
+    {
+        if (clickTag == "tv")
+        {
+            tvChannelSurf.Raise(this, "");
+        }
     }
-}
 
-void Puzzle(){
-    if(clickTag == "puzzle"){
-        puzzle.Raise(this, tempGameObj);
-        clickTag = "";
-        
+    void Puzzle()
+    {
+        if (clickTag == "puzzle")
+        {
+            puzzle.Raise(this, tempGameObj);
+            clickTag = "";
+
+        }
     }
-}
 
-public void DetectOverObject(Component sender, object data){
-    string tmptag = (string)data;
-    clickTag = tmptag;
-    tempGameObj = sender.gameObject;
-}
+    public void DetectOverObject(Component sender, object data)
+    {
+        string tmptag = (string)data;
+        clickTag = tmptag;
+        tempGameObj = sender.gameObject;
+    }
 
-#endregion
+    #endregion
 
 }

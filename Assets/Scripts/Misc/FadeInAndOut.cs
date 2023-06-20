@@ -75,6 +75,7 @@ public class FadeInAndOut : MonoBehaviour
     }
 
     public void Activate(Sprite item){
+        // Debug.Log(item.name);
         image.sprite = item;
         hasImage = true;
     }

@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationPoint: {fileID: 0}
   mouseOver: {fileID: 11400000, guid: a2ad9fdc30355f94e9699707493f1cc6, type: 2}
+  teleportImage: {fileID: 21300000, guid: e7a434c85fc6c7945b21b65050b513e8, type: 3}
 --- !u!61 &6023356173992850963
 BoxCollider2D:
   m_ObjectHideFlags: 0
