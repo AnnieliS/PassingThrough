@@ -7,11 +7,17 @@ public class PuzzleActivation : MonoBehaviour
     [Header("Mini Game Object")]
     public GameObject miniGame;
     [SerializeField] GameEvent detectMouse;
+    [SerializeField] GameEvent changeCursor;
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
-        if (Input.GetMouseButtonDown(0))
             detectMouse.Raise(this, "puzzle");
+            changeCursor.Raise(this, this.gameObject.tag);
+    }
+
+    private void OnMouseExit(){
+        detectMouse.Raise(this, "");
+        changeCursor.Raise(this, "");
     }
 
 

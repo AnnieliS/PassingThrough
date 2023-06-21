@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Texture2D defCursor;
     [SerializeField] Texture2D teleportCursor;
     [SerializeField] Texture2D itemCursor;
+    [SerializeField] Texture2D speakCursor;
+    [SerializeField] Texture2D puzzleCursor;
     #endregion
 
     #region texts
@@ -98,7 +100,8 @@ public class GameManager : MonoBehaviour
         DialogueManager.GetInstance().EnterDialogueMode(initalDialogue);
     }
 
-    void ResetRecipe(){
+    void ResetRecipe()
+    {
         getRecipeAnim = recipeCanvas.GetComponentInChildren<Animator>();
         recipeCutsceneImage.SetActive(true);
         recipeTextImage.SetActive(false);
@@ -159,6 +162,17 @@ public class GameManager : MonoBehaviour
                 Cursor.SetCursor(itemCursor, hotspot, CursorMode.Auto);
                 break;
 
+            case "itemUse":
+                Cursor.SetCursor(speakCursor, hotspot, CursorMode.Auto);
+                break;
+            case "puzzle":
+                Cursor.SetCursor(puzzleCursor, hotspot, CursorMode.Auto);
+                break;
+
+            case "dialogue":
+                Cursor.SetCursor(speakCursor, hotspot, CursorMode.Auto);
+                break;
+
             default:
                 Cursor.SetCursor(defCursor, hotspot, CursorMode.Auto);
                 break;
@@ -210,7 +224,8 @@ public class GameManager : MonoBehaviour
         recipeCanvas.SetActive(false);
     }
 
-    public void ToggleRecipeCanvas(){
+    public void ToggleRecipeCanvas()
+    {
         recipeCanvasOpen = !recipeCanvasOpen;
         recipeCanvas.SetActive(recipeCanvasOpen);
     }

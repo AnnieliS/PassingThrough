@@ -5,59 +5,77 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
 
-    [Header("Visual Cue")]
-    [SerializeField] private GameObject visualCue;
+    // [Header("Visual Cue")]
+    // [SerializeField] private GameObject visualCue;
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
 
-    private bool playerInRange;
+    [Header("Events")]
+    [SerializeField] private GameEvent startDialogue;
+    [SerializeField] GameEvent onMouseHover;
+    [SerializeField] GameEvent changeCursos;
+
+    // private bool playerInRange;
     private bool startConvo;
 
-    private void Awake()
+    // private void Awake()
+    // {
+    //     playerInRange = false;
+    //     visualCue.SetActive(false);
+    // }
+
+
+    // private void Update()
+    // {
+    //     if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
+    //     {
+    //         visualCue.SetActive(true);
+
+    //         DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+
+    //     }
+    //     else
+    //     {
+    //         visualCue.SetActive(false);
+    //     }
+    // }
+
+    // private void OnTriggerEnter2D(Collider2D collider)
+    // {
+    //     if (collider.gameObject.tag == "Player")
+    //     {
+    //         playerInRange = true;
+    //     }
+    // }
+
+    private void OnMouseEnter()
     {
-        playerInRange = false;
-        visualCue.SetActive(false);
+        // playerInRange = true;
+        Debug.Log("mouse enter");
+        onMouseHover.Raise(this, this.gameObject.tag);
+        changeCursos.Raise(this, this.gameObject.tag);
     }
 
-    private void Update()
+    private void OnMouseOver() {
+        DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+        
+    }
+
+    private void OnMouseExit()
     {
-        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
-        {
-            visualCue.SetActive(true);
-
-            DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-
-        }
-        else
-        {
-            visualCue.SetActive(false);
-        }
+        onMouseHover.Raise(this, "");
+        changeCursos.Raise(this, "");
+        // playerInRange = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Player")
-        {
-            playerInRange = true;
-        }
-    }
-
-    private void OnMouseEnter() {
-        playerInRange = true;
-    }
-
-    private void OnMouseExit() {
-        playerInRange = false;
-    }
-
-    private void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Player")
-        {
-            playerInRange = false;
-        }
-    }
+    // private void OnTriggerExit2D(Collider2D collider)
+    // {
+    //     if (collider.gameObject.tag == "Player")
+    //     {
+    //         playerInRange = false;
+    //     }
+    // }
 
     public void StartConversation(Component sender, object data)
     {

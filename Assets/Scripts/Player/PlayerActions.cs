@@ -101,7 +101,7 @@ public class PlayerActions : MonoBehaviour
             Debug.Log("start dialogue player action");
             pausePlayerMovement.Raise(this, "");
             StartCoroutine(ResetPress());
-            startDialogue.Raise(this, clickTag);
+            startDialogue.Raise(this, "dialogue");
         }
 
 
@@ -149,9 +149,10 @@ public class PlayerActions : MonoBehaviour
     {
         if (clickTag == "teleport")
         {
+            Vector3 newTeleportPosition = tempGameObj.GetComponent<Teleporter>().destinationPoint.transform.position;
             teleportCanvas.SetActive(true);
 
-            Vector3 newTeleportPosition = tempGameObj.GetComponent<Teleporter>().destinationPoint.transform.position;
+
             spriteRenderer.enabled = false;
             if (tempGameObj.tag == "teleport")
             {
@@ -162,16 +163,16 @@ public class PlayerActions : MonoBehaviour
             }
             pausePlayerMovement.Raise(this, "");
             resetMousePos.Raise(this, newTeleportPosition);
-            StartCoroutine(SpriteShowDelay(teleportShowTime));
-            gameObject.transform.position = newTeleportPosition;
+            StartCoroutine(SpriteShowDelay(teleportShowTime, newTeleportPosition));
         }
     }
 
-    private IEnumerator SpriteShowDelay(float time)
+    private IEnumerator SpriteShowDelay(float time, Vector3 newTeleportPosition)
     {
         yield return new WaitForSeconds(time);
         resumePlayerMovement.Raise(this, "");
         spriteRenderer.enabled = true;
+        gameObject.transform.position = newTeleportPosition;
     }
 
     #endregion

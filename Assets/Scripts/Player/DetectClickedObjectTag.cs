@@ -13,6 +13,7 @@ public class DetectClickedObjectTag : MonoBehaviour
         Debug.Log("tag raycast= " + hit.collider.gameObject.tag);
         if (hit.collider.gameObject.tag != "")
         {
+            Debug.Log("entered object");
             onMouseHover.Raise(this, hit.collider.gameObject.tag);
             changeCursos.Raise(this, hit.collider.gameObject.tag);
 

@@ -1,2 +1,4 @@
 1 - stool
 2 - spoon
+3 - pot
+4 - lead

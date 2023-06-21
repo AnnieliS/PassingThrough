@@ -9,6 +9,7 @@ public class UseItem : MonoBehaviour
     [SerializeField] private TextAsset cannotUseYetInk;
     [SerializeField] GameEvent mouseOver;
     [SerializeField] GameEvent startConvo;
+    [SerializeField] GameEvent changeCurser;
 
     ItemUseManager itemsManager = new ItemUseManager();
     StoryEvents storyEvents = new StoryEvents();
@@ -17,6 +18,7 @@ public class UseItem : MonoBehaviour
     {
         Debug.Log("clicked item space to use");
         Debug.Log("item selected in manager: " + GameManager.GetInstance().GetSelectedItem());
+        startConvo.Raise(this, "dialogue");
         if (GameManager.GetInstance().GetSelectedItem() == itemIdToUse)
         {
             for (int i = 0; i < eventsPrecondition.Length; i++)
@@ -45,13 +47,16 @@ public class UseItem : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        startConvo.Raise(this, "dialogue");
+        Debug.Log("mouse entered speech area");
         mouseOver.Raise(this, this.gameObject.tag);
+        changeCurser.Raise(this, this.gameObject.tag);
+        
     }
 
     private void OnMouseExit()
     {
         mouseOver.Raise(this, "");
+        changeCurser.Raise(this, "");
     }
 
 

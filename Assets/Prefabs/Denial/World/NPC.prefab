@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMouseHover: {fileID: 11400000, guid: a2ad9fdc30355f94e9699707493f1cc6, type: 2}
+  changeCursos: {fileID: 0}
 --- !u!114 &2702901086384325464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,8 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6974d771f3d6547bba0a31a060e5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualCue: {fileID: 377241597163588342}
   inkJSON: {fileID: 0}
+  startDialogue: {fileID: 11400000, guid: fc3f3048c6f3b6647a0c98da49f6d873, type: 2}
+  onMouseHover: {fileID: 11400000, guid: a2ad9fdc30355f94e9699707493f1cc6, type: 2}
+  changeCursos: {fileID: 11400000, guid: 52e6d5bb3836fcf4da83ce47613bf3f1, type: 2}
 --- !u!212 &3789347470497598873
 SpriteRenderer:
   m_ObjectHideFlags: 0

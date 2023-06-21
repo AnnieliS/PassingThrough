@@ -3,7 +3,10 @@ guid: 0441eb28e5fe6e5409a17cfbab7334c5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - miniGame: {instanceID: 0}
+  - detectMouse: {fileID: 11400000, guid: a2ad9fdc30355f94e9699707493f1cc6, type: 2}
+  - changeCursor: {fileID: 11400000, guid: 52e6d5bb3836fcf4da83ce47613bf3f1, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
