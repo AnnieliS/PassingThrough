@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameEvent dialogueStart;
     [SerializeField] GameEvent switchClicktagToDialogue;
     [SerializeField] GameEvent pausePlayer;
+    [SerializeField] GameEvent resumePlayer;
     #endregion
     private static GameManager instance;
     private StoryEvents storyEvents;
@@ -85,6 +86,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public static GameManager GetInstance()
+    {
+        return instance;
+    }
+
 
     void ResetCameras()
     {
@@ -107,11 +113,6 @@ public class GameManager : MonoBehaviour
         recipeTextImage.SetActive(false);
         recipeCanvas.SetActive(false);
         recipeButton.SetActive(false);
-    }
-
-    public static GameManager GetInstance()
-    {
-        return instance;
     }
 
 
@@ -210,15 +211,19 @@ public class GameManager : MonoBehaviour
     public void GotRecipe()
     {
         // Debug.Log("anim lenght : " + getRecipeAnim.GetCurrentAnimatorStateInfo(1).);
+        Cursor.visible = false;
         recipeCanvas.SetActive(true);
         storyEvents.gotRecipe = true;
         recipeButton.SetActive(true);
+        pausePlayer.Raise(this, "");
         StartCoroutine("TurnOffGotRecipe");
     }
 
     IEnumerator TurnOffGotRecipe()
     {
         yield return new WaitForSeconds(8f);
+        Cursor.visible = true;
+        resumePlayer.Raise(this, "");
         recipeCutsceneImage.SetActive(false);
         recipeTextImage.SetActive(true);
         recipeCanvas.SetActive(false);

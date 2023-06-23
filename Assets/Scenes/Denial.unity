@@ -2225,7 +2225,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burner
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 826ce4ed1a2d71343b1a085d8c2c162e, type: 3}
 --- !u!4 &246693772 stripped
 Transform:
@@ -10687,7 +10688,7 @@ PrefabInstance:
       value: Door
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 5741234916944523503, guid: 826ce4ed1a2d71343b1a085d8c2c162e, type: 3}
+    - {fileID: 0}
     - {fileID: 3789347470497598873, guid: 826ce4ed1a2d71343b1a085d8c2c162e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 826ce4ed1a2d71343b1a085d8c2c162e, type: 3}
 --- !u!1 &1200642784
@@ -23696,6 +23697,7 @@ MonoBehaviour:
   dialogueStart: {fileID: 11400000, guid: fc3f3048c6f3b6647a0c98da49f6d873, type: 2}
   switchClicktagToDialogue: {fileID: 11400000, guid: a2ad9fdc30355f94e9699707493f1cc6, type: 2}
   pausePlayer: {fileID: 11400000, guid: 86b84f4dd73e087478b2384331cce088, type: 2}
+  resumePlayer: {fileID: 11400000, guid: e27326a88cbe6504094feb9cea0c2890, type: 2}
   recipeButton: {fileID: 1248365605}
   recipeCutsceneImage: {fileID: 710772734}
   recipeTextImage: {fileID: 735331279}
@@ -24035,16 +24037,12 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5741234916944523503, guid: 826ce4ed1a2d71343b1a085d8c2c162e, type: 3}
-      propertyPath: changeCursos
-      value: 
-      objectReference: {fileID: 11400000, guid: 52e6d5bb3836fcf4da83ce47613bf3f1, type: 2}
     - target: {fileID: 8226394047211631109, guid: 826ce4ed1a2d71343b1a085d8c2c162e, type: 3}
       propertyPath: m_Name
       value: Pics
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 5741234916944523503, guid: 826ce4ed1a2d71343b1a085d8c2c162e, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 826ce4ed1a2d71343b1a085d8c2c162e, type: 3}
 --- !u!1 &1706895709
 GameObject:

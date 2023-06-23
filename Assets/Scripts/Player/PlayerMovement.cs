@@ -99,12 +99,15 @@ public class PlayerMovement : MonoBehaviour
     {
         canMove = true;
         speed = moveSpeed;
+        playerAnim.SetFloat("animSpeed", 1f);
     }
 
         public void PausePlayer(Component sender, object data)
     {
         canMove = false;
         speed = 0f;
+        playerAnim.SetFloat("animSpeed", 0f);
+        
     }
 
     public void ChangeLastMousePos(Component sender, object data)
