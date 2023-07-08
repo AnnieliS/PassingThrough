@@ -2,3 +2,7 @@
 2 - spoon
 3 - pot
 4 - lead
+5 - shoes
+6 - dirt
+7 - bucket
+8 - matches

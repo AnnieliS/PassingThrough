@@ -5,6 +5,14 @@ using UnityEngine.Rendering.Universal;
 
 public class TVFlicker : MonoBehaviour
 {
+    [Header("Pickable")]
+    [SerializeField] GameObject matches;
+
+    [Header("Events")]
+    [SerializeField] GameEvent onHover;
+    [SerializeField] GameEvent changeCursor;
+
+    [Header("TV Settings")]
     [SerializeField] Light2D light2d;
     [SerializeField] int numOfChannel;
     [SerializeField] Color[] channel1;
@@ -57,14 +65,17 @@ public class TVFlicker : MonoBehaviour
         {
             case 0:
                 currentChannel = (Color[])channel1.Clone();
+                matches.SetActive(false);
                 break;
 
             case 1:
                 currentChannel = (Color[])channel2.Clone();
+                matches.SetActive(false);
                 break;
 
             case 2:
                 currentChannel = (Color[])channel3.Clone();
+                matches.SetActive(true);
                 break;
 
             default:
@@ -72,5 +83,17 @@ public class TVFlicker : MonoBehaviour
                 break;
         }
 
+    }
+
+    private void OnMouseEnter()
+    {
+        onHover.Raise(this, this.gameObject.tag);
+        changeCursor.Raise(this, this.gameObject.tag);
+    }
+
+    private void OnMouseExit()
+    {
+        onHover.Raise(this, "");
+        changeCursor.Raise(this, "");
     }
 }

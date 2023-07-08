@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Texture2D itemCursor;
     [SerializeField] Texture2D speakCursor;
     [SerializeField] Texture2D puzzleCursor;
+    [SerializeField] Texture2D tvCursor;
     #endregion
 
     #region texts
@@ -50,8 +51,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject recipeCutsceneImage;
     [SerializeField] GameObject recipeTextImage;
 
+    [SerializeField] GameEvent itemToPot;
 
+    #endregion
 
+    #region generalItems
+    [Header("Tap")]
+    [SerializeField] SpriteRenderer oilTap;
+    [SerializeField] private TextAsset tapInk;
+    bool isTapOn = false;
     #endregion
 
     #region init params
@@ -174,6 +182,14 @@ public class GameManager : MonoBehaviour
                 Cursor.SetCursor(speakCursor, hotspot, CursorMode.Auto);
                 break;
 
+            case "tv":
+                Cursor.SetCursor(tvCursor, hotspot, CursorMode.Auto);
+                break;
+
+            case "oil":
+                Cursor.SetCursor(itemCursor, hotspot, CursorMode.Auto);
+                break;
+
             default:
                 Cursor.SetCursor(defCursor, hotspot, CursorMode.Auto);
                 break;
@@ -233,6 +249,27 @@ public class GameManager : MonoBehaviour
     {
         recipeCanvasOpen = !recipeCanvasOpen;
         recipeCanvas.SetActive(recipeCanvasOpen);
+    }
+
+    public void ToggleTap()
+    {
+        isTapOn = !isTapOn;
+        oilTap.enabled = isTapOn;
+        if (isTapOn)
+        {
+            dialogueStart.Raise(this, "dialogue");
+            DialogueManager.GetInstance().EnterDialogueMode(tapInk);
+        }
+    }
+
+    public bool GetTapState()
+    {
+        return isTapOn;
+    }
+
+    public void ItemToPot(int item)
+    {
+        itemToPot.Raise(this, item);
     }
 
 

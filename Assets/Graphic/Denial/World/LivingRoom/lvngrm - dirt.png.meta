@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7758a861d6ff64e4ea44e4c4c920d50a
+guid: c3a225b82e32de84c9b3ada0b6366c8c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -103,7 +103,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -115,7 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -127,133 +127,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: GA_LR_Big_Window
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 3596
-        width: 523
-        height: 440
-      alignment: 9
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51739f7ed0182c648a7b20933cc009df
-      internalID: -1032293961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GA_LR_Big_Shelf
-      rect:
-        serializedVersion: 2
-        x: 2831
-        y: 2611
-        width: 459
-        height: 1382
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4db6cbd1b9714ec46ac7b23fcb276a68
-      internalID: 1495239757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GA_LR_Big_Floor
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 2747
-        width: 2689
-        height: 746
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2170f3192a0e074994db8321e0f3b63
-      internalID: 867065284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GA_LR_Big_Top
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 2190
-        width: 2134
-        height: 422
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95212353d45d0fd448cf5e6b4d1a41c6
-      internalID: -1184889368
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GA_LR_Big_Wall0
-      rect:
-        serializedVersion: 2
-        x: 2375
-        y: 1794
-        width: 200
-        height: 791
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17c1a176a2f845946926f8f51dbef2e2
-      internalID: -46779320
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GA_LR_Big_Wall1
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 577
-        width: 583
-        height: 1219
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea5624521f2151d4fb853f9332dabdc5
-      internalID: 2142098135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -264,13 +138,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      GA_LR_Big_Floor: 867065284
-      GA_LR_Big_Shelf: 1495239757
-      GA_LR_Big_Top: -1184889368
-      GA_LR_Big_Wall0: -46779320
-      GA_LR_Big_Wall1: 2142098135
-      GA_LR_Big_Window: -1032293961
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

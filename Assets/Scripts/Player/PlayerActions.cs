@@ -18,7 +18,7 @@ public class PlayerActions : MonoBehaviour
     [Header("Items Events")]
     [SerializeField] GameEvent tvChannelSurf;
     [SerializeField] GameEvent puzzle;
-
+    [SerializeField] GameEvent tap;
     #endregion
 
 
@@ -60,6 +60,7 @@ public class PlayerActions : MonoBehaviour
         UseItem();
         TVClick();
         Puzzle();
+        Tap();
     }
 
     void OnSingleClick()
@@ -215,6 +216,13 @@ public class PlayerActions : MonoBehaviour
             puzzle.Raise(this, tempGameObj);
             clickTag = "";
 
+        }
+    }
+
+    void Tap(){
+        if(clickTag == "oil"){
+            tap.Raise(this, "");
+            clickTag = "";
         }
     }
 

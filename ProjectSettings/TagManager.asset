@@ -14,6 +14,7 @@ TagManager:
   - puzzle
   - scalePoint
   - itemUse
+  - oil
   layers:
   - Default
   - TransparentFX
