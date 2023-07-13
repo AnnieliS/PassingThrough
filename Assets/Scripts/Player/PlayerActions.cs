@@ -55,6 +55,11 @@ public class PlayerActions : MonoBehaviour
     void OnInteract()
     {
 
+    }
+
+    void OnSingleClick()
+    {
+        DialogueContinue();
         DialogueInteraction();
         Teleport();
         ItemPickup();
@@ -62,11 +67,6 @@ public class PlayerActions : MonoBehaviour
         TVClick();
         Puzzle();
         Tap();
-    }
-
-    void OnSingleClick()
-    {
-        DialogueContinue();
     }
 
     #region collision functions
@@ -234,6 +234,10 @@ public class PlayerActions : MonoBehaviour
         if(clickTag == "door"){
             GameManager.GetInstance().EndCutscene();
         }
+    }
+
+    public string GetClickTag(){
+        return clickTag;
     }
 
     public void DetectOverObject(Component sender, object data)

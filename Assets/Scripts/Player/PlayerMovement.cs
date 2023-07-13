@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -57,13 +57,17 @@ public class PlayerMovement : MonoBehaviour
 
     void OnSingleClick(InputValue value)
     {
-        if (canMove)
+        if (canMove && gameObject.GetComponent<PlayerActions>().GetClickTag() == "")
         {
             oldPos = (Vector2)transform.position;
             lastClickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isMoving = true;
             FaceDirection();
         }
+    }
+
+    void OnResetGame(){
+        SceneManager.LoadScene( SceneManager.GetActiveScene().name );
     }
 
     void MovePlayer()
