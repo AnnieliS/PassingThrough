@@ -58,7 +58,7 @@ public class InventoryManager : MonoBehaviour
 
     }
 
-    private void RefreshView()
+    public void RefreshView()
     {
         int tempOffset = offset;
         int i = 0;
@@ -75,7 +75,10 @@ public class InventoryManager : MonoBehaviour
                 {
                     tempImage = inventorySpace[i].GetComponent<Image>();
                     tempImage.sprite = item.inventorySprite;
-                    tempImage.color = new Color(1, 1, 1, 1);
+                    if (GameManager.GetInstance().GetSelectedItem() == item.id)
+                        tempImage.color = new Color(1, 0, 0, 1);
+                    else
+                        tempImage.color = new Color(1, 1, 1, 1);
 
                     inventorySpace[i].GetComponent<InventoryItem>().itemId = item.id;
                 }

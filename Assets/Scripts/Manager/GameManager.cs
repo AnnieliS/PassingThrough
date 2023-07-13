@@ -256,6 +256,7 @@ public class GameManager : MonoBehaviour
     public void SetSelectedItem(int data)
     {
         selectedItem = data;
+        InventoryManager.GetInstance().RefreshView();
     }
 
     public void GotRecipe()
