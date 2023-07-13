@@ -76,7 +76,7 @@ public class InventoryManager : MonoBehaviour
                     tempImage = inventorySpace[i].GetComponent<Image>();
                     tempImage.sprite = item.inventorySprite;
                     if (GameManager.GetInstance().GetSelectedItem() == item.id)
-                        tempImage.color = new Color(1, 0, 0, 1);
+                        tempImage.color = new Color(0.43f, 0.83f, 0.66f, 1);
                     else
                         tempImage.color = new Color(1, 1, 1, 1);
 
