@@ -2144,7 +2144,7 @@ MonoBehaviour:
   earth: {fileID: 32900000, guid: 0fa0e53f73bf56844a88537b14503cfe, type: 3}
   match: {fileID: 32900000, guid: 0813bd9821897a64bae47e8f26ddeca1, type: 3}
   metal: {fileID: 32900000, guid: d070921d63201c049a1cfc07083d62a5, type: 3}
-  oil: {fileID: 32900000, guid: 4f8bd4fcdaf332444b5808631f93cc7c, type: 3}
+  oil: {fileID: 32900000, guid: 83b94b2041ffac04ebbe03550ab657a6, type: 3}
   water: {fileID: 32900000, guid: 654d841f4bdc2c445a21edae57208994, type: 3}
 --- !u!328 &215570496
 VideoPlayer:
@@ -3142,7 +3142,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305899432}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 93a381060d4e1e148ac6ef70fcb0b74d, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: b1fd546e3d6dbde438ced3b8423f30d7, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
