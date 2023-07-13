@@ -9,6 +9,7 @@ public class FadeInAndOut : MonoBehaviour
     [SerializeField] float fadeInSpeed;
     [SerializeField] float fadeOutSpeed;
     [SerializeField] float stayTime;
+    [SerializeField] GameObject backTeleport;
     Image image;
     private bool fadeOut, fadeIn, wait, ongoing, hasImage;
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class FadeInAndOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (!ongoing && hasImage)
         {
             ongoing = true;
@@ -58,6 +59,7 @@ public class FadeInAndOut : MonoBehaviour
                 image.sprite = null;
                 hasImage = false;
                 gameObject.SetActive(false);
+                backTeleport.GetComponent<Image>().color = new Color(0,0,0,0);
             }
         }
     }
@@ -74,12 +76,15 @@ public class FadeInAndOut : MonoBehaviour
         fadeOut = true;
     }
 
-    public void Activate(Sprite item){
-        // Debug.Log(item.name);
+    public void Activate(Sprite item)
+    {
         image.sprite = item;
         hasImage = true;
+                        backTeleport.GetComponent<Image>().color = new Color(0,0,0,1);
+
     }
-    public void Activate2(){
+    public void Activate2()
+    {
         ongoing = false;
     }
 

@@ -12,34 +12,36 @@ public class UseItem : MonoBehaviour
     [SerializeField] GameEvent changeCurser;
 
     ItemUseManager itemsManager = new ItemUseManager();
-    StoryEvents storyEvents = new StoryEvents();
+    // StoryEvents storyEvents = new StoryEvents();
 
     public void ClickedPlaceToUse()
     {
-        Debug.Log("clicked item space to use");
-        Debug.Log("item selected in manager: " + GameManager.GetInstance().GetSelectedItem());
-        startConvo.Raise(this, "dialogue");
+        // Debug.Log("clicked item space to use");
+        // Debug.Log("item selected in manager: " + GameManager.GetInstance().GetSelectedItem());
         for (int i = 0; i < itemIdToUse.Length; i++)
         {
             if (GameManager.GetInstance().GetSelectedItem() == itemIdToUse[i])
             {
                 for (int j = 0; j < eventsPrecondition.Length; j++)
                 {
-                    if (storyEvents.CheckPrecondition(eventsPrecondition[j]))
+                    // Debug.Log("precondition fulfilled: " + GameManager.GetInstance().CheckPrecondition(eventsPrecondition[j]));
+                    if (!GameManager.GetInstance().CheckPrecondition(eventsPrecondition[j]))
                     {
+                        startConvo.Raise(this, "dialogue");
                         if (!DialogueManager.GetInstance().dialogueIsPlaying) DialogueManager.GetInstance().EnterDialogueMode(cannotUseYetInk);
                         return;
                     }
 
                 }
 
-                itemsManager.UseFunction(itemIdToUse[i]);
+                itemsManager.UseFunction(this.gameObject, itemIdToUse[i]);
             }
         }
 
         if (!DialogueManager.GetInstance().dialogueIsPlaying)
         {
-            Debug.Log("can start no item dialogue");
+            // Debug.Log("can start no item dialogue");
+            startConvo.Raise(this, "dialogue");
             DialogueManager.GetInstance().EnterDialogueMode(cannotUseYetInk);
         }
 
@@ -47,7 +49,7 @@ public class UseItem : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Debug.Log("mouse entered speech area");
+        // Debug.Log("mouse entered speech area");
         mouseOver.Raise(this, this.gameObject.tag);
         changeCurser.Raise(this, this.gameObject.tag);
 

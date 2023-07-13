@@ -2,6 +2,7 @@ using UnityEngine;
 using Ink.Runtime;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject inventoryCanvas;
     [SerializeField] GameObject inventoryButtonCanvas;
     [SerializeField] GameObject recipeCanvas;
+    [SerializeField] GameObject endCanvas;
     #endregion
 
     #region cameras
@@ -41,9 +43,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameEvent switchClicktagToDialogue;
     [SerializeField] GameEvent pausePlayer;
     [SerializeField] GameEvent resumePlayer;
+    [SerializeField] GameEvent pickUpItem;
     #endregion
     private static GameManager instance;
-    private StoryEvents storyEvents;
 
     #region Recipe
     [Header("recipe")]
@@ -59,7 +61,32 @@ public class GameManager : MonoBehaviour
     [Header("Tap")]
     [SerializeField] SpriteRenderer oilTap;
     [SerializeField] private TextAsset tapInk;
+    [SerializeField] TextAsset oilInk;
     bool isTapOn = false;
+    [Header("Collectible")]
+    [SerializeField] CollectibleItem meltedLead;
+    [SerializeField] CollectibleItem oilCup;
+
+    [SerializeField] CollectibleItem key;
+    #endregion
+
+    #region story events
+    private bool gotRecipe = false; // event 1
+    private bool isChairInPlace = false; // event 2
+    private bool gotOil = false; // event 3
+    private bool putDirt = false; // event 4
+    private bool putwater = false; // event 5
+    private bool putoil = false; // event 6
+    private bool putmatches = false; // event 7
+    private bool putlead = false; // event 8
+    private bool changesLocks = false;
+
+    [SerializeField] GameObject keyAnim;
+    [SerializeField] GameObject doorCollider;
+    [SerializeField] GameObject newDoorCollider;
+    [SerializeField] VideoPlayer endScenePlayer;
+
+
     #endregion
 
     #region init params
@@ -70,7 +97,7 @@ public class GameManager : MonoBehaviour
     private int selectedItem;
     #endregion
 
-    #region inits
+    #region inits + unity funcs
     private void Awake()
     {
         if (instance != null)
@@ -89,14 +116,20 @@ public class GameManager : MonoBehaviour
         ResetRecipe();
         Cursor.SetCursor(defCursor, new Vector2(-0.5f, 0.5f), CursorMode.Auto);
 
-
-        storyEvents = new StoryEvents();
-
     }
 
     public static GameManager GetInstance()
     {
         return instance;
+    }
+
+    private void Update()
+    {
+        if (putoil && putDirt && putwater && putlead && putmatches && !changesLocks)
+        {
+            changesLocks = true;
+            FinishGame();
+        }
     }
 
 
@@ -122,6 +155,7 @@ public class GameManager : MonoBehaviour
         recipeCanvas.SetActive(false);
         recipeButton.SetActive(false);
     }
+
 
 
     #endregion
@@ -219,9 +253,9 @@ public class GameManager : MonoBehaviour
         return selectedItem;
     }
 
-    public void SetSelectedItem(Component sender, object data)
+    public void SetSelectedItem(int data)
     {
-        selectedItem = (int)data;
+        selectedItem = data;
     }
 
     public void GotRecipe()
@@ -229,7 +263,8 @@ public class GameManager : MonoBehaviour
         // Debug.Log("anim lenght : " + getRecipeAnim.GetCurrentAnimatorStateInfo(1).);
         Cursor.visible = false;
         recipeCanvas.SetActive(true);
-        storyEvents.gotRecipe = true;
+        recipeCutsceneImage.GetComponent<AudioSource>().Play();
+        EventFulfill(1);
         recipeButton.SetActive(true);
         pausePlayer.Raise(this, "");
         StartCoroutine("TurnOffGotRecipe");
@@ -237,7 +272,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator TurnOffGotRecipe()
     {
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(6f);
         Cursor.visible = true;
         resumePlayer.Raise(this, "");
         recipeCutsceneImage.SetActive(false);
@@ -259,6 +294,13 @@ public class GameManager : MonoBehaviour
         {
             dialogueStart.Raise(this, "dialogue");
             DialogueManager.GetInstance().EnterDialogueMode(tapInk);
+            if (CheckPrecondition(1) && !CheckPrecondition(3))
+            {
+                dialogueStart.Raise(this, "dialogue");
+                DialogueManager.GetInstance().EnterDialogueMode(oilInk);
+                EventFulfill(3);
+                pickUpItem.Raise(oilCup, "");
+            }
         }
     }
 
@@ -270,8 +312,113 @@ public class GameManager : MonoBehaviour
     public void ItemToPot(int item)
     {
         itemToPot.Raise(this, item);
+        item = -1;
     }
 
+    public void MeltLead()
+    {
+        pickUpItem.Raise(meltedLead, "");
+    }
+
+
+
+    #endregion
+
+    #region  story event functions
+    public bool CheckPrecondition(int preconditionID)
+    {
+
+        switch (preconditionID)
+        {
+            case 1:
+                return gotRecipe;
+            case 2:
+                return isChairInPlace;
+            case 3:
+                return gotOil;
+            case 4:
+                return putDirt;
+            case 5:
+                return putwater;
+            case 6:
+                return putoil;
+            case 7:
+                return putmatches;
+            case 8:
+                return putlead;
+
+
+            default:
+                return false;
+        }
+
+    }
+
+    public void EventFulfill(int eventID)
+    {
+        switch (eventID)
+        {
+            case 1:
+                gotRecipe = true;
+                break;
+            case 2:
+                isChairInPlace = true;
+                break;
+            case 3:
+                gotOil = true;
+                break;
+            case 4:
+                putDirt = true;
+                break;
+            case 5:
+                putwater = true;
+                break;
+            case 6:
+                putoil = true;
+                break;
+            case 7:
+                putmatches = true;
+                break;
+            case 8:
+                putlead = true;
+                break;
+            default:
+                break;
+        }
+
+
+    }
+
+
+    void FinishGame()
+    {
+        doorCollider.SetActive(false);
+        newDoorCollider.SetActive(true);
+        StartCoroutine("GetKey");
+    }
+
+    IEnumerator GetKey()
+    {
+        yield return new WaitForSeconds(4f);
+        keyAnim.SetActive(true);
+        StartCoroutine("GetGetKey");
+
+    }
+
+    IEnumerator GetGetKey(){
+        yield return new WaitForSeconds(3f);
+        pickUpItem.Raise(key, "");
+        keyAnim.SetActive(false);
+
+    }
+
+    public void EndCutscene()
+    {
+        Cursor.visible = false;
+        endScenePlayer.Play();
+        endCanvas.SetActive(true);
+
+    }
 
 
     #endregion

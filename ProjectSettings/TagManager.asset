@@ -15,6 +15,7 @@ TagManager:
   - scalePoint
   - itemUse
   - oil
+  - door
   layers:
   - Default
   - TransparentFX

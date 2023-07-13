@@ -8,7 +8,7 @@ public class InventoryItem : MonoBehaviour
     public int itemId;
 
     public void ChooseItem(){
-        selectItem.Raise(this, itemId);
-        Debug.Log("item: " + itemId);
+        GameManager.GetInstance().SetSelectedItem(itemId);
+        // Debug.Log(GameManager.GetInstance().GetSelectedItem());
     }
 }

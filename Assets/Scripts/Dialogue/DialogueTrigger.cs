@@ -52,7 +52,7 @@ public class DialogueTrigger : MonoBehaviour
     private void OnMouseEnter()
     {
         // playerInRange = true;
-        Debug.Log("mouse enter");
+        // Debug.Log("mouse enter");
         onMouseHover.Raise(this, this.gameObject.tag);
         changeCursos.Raise(this, this.gameObject.tag);
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoryEvents
+public class StoryEvents : MonoBehaviour
 {
     private static StoryEvents Instance;
 

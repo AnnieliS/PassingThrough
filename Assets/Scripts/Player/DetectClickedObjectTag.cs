@@ -8,12 +8,12 @@ public class DetectClickedObjectTag : MonoBehaviour
     [SerializeField] GameEvent changeCursos;
     private void OnMouseHover()
     {
-        Debug.Log("tag gameobject= " + this.gameObject.tag);
+        // Debug.Log("tag gameobject= " + this.gameObject.tag);
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        Debug.Log("tag raycast= " + hit.collider.gameObject.tag);
+        // Debug.Log("tag raycast= " + hit.collider.gameObject.tag);
         if (hit.collider.gameObject.tag != "")
         {
-            Debug.Log("entered object");
+            // Debug.Log("entered object");
             onMouseHover.Raise(this, hit.collider.gameObject.tag);
             changeCursos.Raise(this, hit.collider.gameObject.tag);
 

@@ -6,3 +6,7 @@
 6 - dirt
 7 - bucket
 8 - matches
+9 - melted lead
+10 - water
+11 - oil
+12 - key

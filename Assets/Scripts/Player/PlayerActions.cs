@@ -28,6 +28,7 @@ public class PlayerActions : MonoBehaviour
     #region misc
     [Header("Misc")]
     [SerializeField] GameObject teleportCanvas;
+    [SerializeField] GameObject teleportBack;
     #endregion
 
     #region dialogue params
@@ -99,7 +100,7 @@ public class PlayerActions : MonoBehaviour
     {
         if (clickTag == "dialogue" && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
-            Debug.Log("start dialogue player action");
+            // Debug.Log("start dialogue player action");
             pausePlayerMovement.Raise(this, "");
             StartCoroutine(ResetPress());
             startDialogue.Raise(this, "dialogue");
@@ -152,12 +153,14 @@ public class PlayerActions : MonoBehaviour
         {
             Vector3 newTeleportPosition = tempGameObj.GetComponent<Teleporter>().destinationPoint.transform.position;
             teleportCanvas.SetActive(true);
+            teleportBack.SetActive(true);
 
 
             spriteRenderer.enabled = false;
             if (tempGameObj.tag == "teleport")
             {
                 Sprite image = tempGameObj.GetComponent<Teleporter>().teleportImage;
+                tempGameObj.GetComponent<AudioSource>().Play();
                 FadeInAndOut fade = teleportCanvas.GetComponent<FadeInAndOut>();
                 fade.Activate(image);
                 fade.Activate2();
@@ -174,6 +177,7 @@ public class PlayerActions : MonoBehaviour
         resumePlayerMovement.Raise(this, "");
         spriteRenderer.enabled = true;
         gameObject.transform.position = newTeleportPosition;
+        // teleportBack.SetActive(false);
     }
 
     #endregion
@@ -223,6 +227,12 @@ public class PlayerActions : MonoBehaviour
         if(clickTag == "oil"){
             tap.Raise(this, "");
             clickTag = "";
+        }
+    }
+
+    void End(){
+        if(clickTag == "door"){
+            GameManager.GetInstance().EndCutscene();
         }
     }
 

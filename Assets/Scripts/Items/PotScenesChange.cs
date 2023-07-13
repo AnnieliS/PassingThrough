@@ -7,11 +7,10 @@ using UnityEngine.Video;
 public class PotScenesChange : MonoBehaviour
 {
     [SerializeField] GameObject clipCanvas;
-    [SerializeField] float showTime;
 
     [Header("Clips")]
-    [SerializeField] VideoClip earth;
     [SerializeField] VideoClip idle;
+    [SerializeField] VideoClip earth;
     [SerializeField] VideoClip match;
     [SerializeField] VideoClip metal;
     [SerializeField] VideoClip oil;
@@ -31,13 +30,26 @@ public class PotScenesChange : MonoBehaviour
         int item = (int)data;
         switch (item)
         {
+            case -1:
+                return;
+            case 6:
+                PlayClip(earth);
+                break;
             case 8:
                 PlayClip(match);
                 break;
 
+            case 9:
+                PlayClip(metal);
+                break;
+            case 10:
+                PlayClip(water);
+                break;
+            case 11:
+                PlayClip(oil);
+                break;
             default:
                 PlayClip(idle);
-
                 break;
         }
     }
@@ -51,6 +63,7 @@ public class PotScenesChange : MonoBehaviour
     void HideClip(VideoPlayer source)
     {
         clipCanvas.SetActive(false);
+        videoPlayer.clip = idle;
     }
 
 
